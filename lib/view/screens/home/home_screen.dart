@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:disable_battery_optimization/disable_battery_optimization.dart';
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
 import 'package:efood_multivendor_driver/controller/notification_controller.dart';
@@ -21,23 +23,48 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Timer _timer;
   Future<void> _loadData() async {
     Get.find<OrderController>().getIgnoreList();
     Get.find<OrderController>().removeFromIgnoreList();
     await Get.find<AuthController>().getProfile();
     await Get.find<OrderController>().getCurrentOrders();
     await Get.find<NotificationController>().getNotificationList();
-    bool _isBatteryOptimizationDisabled =
-        await DisableBatteryOptimization.isBatteryOptimizationDisabled;
-    if (!_isBatteryOptimizationDisabled) {
-      DisableBatteryOptimization.showDisableBatteryOptimizationSettings();
-    }
+    // bool _isBatteryOptimizationDisabled =
+    //     await DisableBatteryOptimization.isBatteryOptimizationDisabled;
+    // if (!_isBatteryOptimizationDisabled) {
+    //   DisableBatteryOptimization.showDisableBatteryOptimizationSettings();
+    // }
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    // TODO: implement initState
+    super.initState();
     _loadData();
+    
+  }
+
+ @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _timer.cancel();
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    _timer = Timer.periodic(Duration(seconds: 15), (timer){
+      _loadData();
+    });
+    
 
     return Scaffold(
       appBar: AppBar(

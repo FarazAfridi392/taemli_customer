@@ -19,10 +19,11 @@ import 'package:url_strategy/url_strategy.dart';
 import 'controller/auth_controller.dart';
 import 'helper/get_di.dart' as di;
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 
 Future<void> main() async {
-  if(!GetPlatform.isWeb) {
+  if (!GetPlatform.isWeb) {
     HttpOverrides.global = new MyHttpOverrides();
   }
   setPathUrlStrategy();
@@ -33,14 +34,15 @@ Future<void> main() async {
   NotificationBody _body;
   try {
     if (GetPlatform.isMobile) {
-      final RemoteMessage remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
-      if(remoteMessage != null){
+      final RemoteMessage remoteMessage =
+          await FirebaseMessaging.instance.getInitialMessage();
+      if (remoteMessage != null) {
         _body = NotificationHelper.convertNotification(remoteMessage.data);
       }
       await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
       FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
     }
-  }catch(e) {}
+  } catch (e) {}
 
   runApp(MyApp(languages: _languages, body: _body));
 }
@@ -62,36 +64,49 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(GetPlatform.isWeb) {
+    if (GetPlatform.isWeb) {
       Get.find<SplashController>().initSharedData();
       _route();
     }
 
-    return GetBuilder<ThemeController>(builder: (themeController) {
-      return GetBuilder<LocalizationController>(builder: (localizeController) {
-        return GetBuilder<SplashController>(builder: (splashController) {
-          return (GetPlatform.isWeb && splashController.configModel == null) ? SizedBox() : GetMaterialApp(
-            title: AppConstants.APP_NAME,
-            debugShowCheckedModeBanner: false,
-            navigatorKey: Get.key,
-            theme: themeController.darkTheme ? dark : light,
-            locale: localizeController.locale,
-            translations: Messages(languages: languages),
-            fallbackLocale: Locale(AppConstants.languages[0].languageCode, AppConstants.languages[0].countryCode),
-            initialRoute: RouteHelper.getSplashRoute(body),
-            getPages: RouteHelper.routes,
-            defaultTransition: Transition.topLevel,
-            transitionDuration: Duration(milliseconds: 500),
-          );
-        });
-      });
-    });
+    return GetBuilder<ThemeController>(
+      builder: (themeController) {
+        return GetBuilder<LocalizationController>(
+          builder: (localizeController) {
+            return GetBuilder<SplashController>(
+              builder: (splashController) {
+                return (GetPlatform.isWeb &&
+                        splashController.configModel == null)
+                    ? SizedBox()
+                    : GetMaterialApp(
+                        title: AppConstants.APP_NAME,
+                        debugShowCheckedModeBanner: false,
+                        navigatorKey: Get.key,
+                        theme: themeController.darkTheme ? dark : light,
+                        locale: localizeController.locale,
+                        translations: Messages(languages: languages),
+                        fallbackLocale: Locale(
+                            AppConstants.languages[0].languageCode,
+                            AppConstants.languages[0].countryCode),
+                        initialRoute: RouteHelper.getSplashRoute(body),
+                        getPages: RouteHelper.routes,
+                        defaultTransition: Transition.topLevel,
+                        transitionDuration: Duration(milliseconds: 500),
+                      );
+              },
+            );
+          },
+        );
+      },
+    );
   }
 }
 
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext context) {
-    return super.createHttpClient(context)..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }
