@@ -30,7 +30,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     if(Get.find<AuthController>().profileModel == null) {

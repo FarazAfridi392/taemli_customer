@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:disable_battery_optimization/disable_battery_optimization.dart';
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
 import 'package:efood_multivendor_driver/controller/notification_controller.dart';
 import 'package:efood_multivendor_driver/controller/order_controller.dart';
@@ -45,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loadData();
     
@@ -53,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
  @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _timer.cancel();
   }

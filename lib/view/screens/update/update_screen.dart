@@ -24,12 +24,15 @@ class UpdateScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.height * 0.4,
               height: MediaQuery.of(context).size.height * 0.4,
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
             Text(
               isUpdate ? 'update'.tr : 'we_are_under_maintenance'.tr,
               style: robotoBold.copyWith(
-                  fontSize: MediaQuery.of(context).size.height * 0.023,
-                  color: Theme.of(context).primaryColor),
+                fontSize: MediaQuery.of(context).size.height * 0.023,
+                color: Theme.of(context).primaryColor,
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
@@ -43,8 +46,8 @@ class UpdateScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             SizedBox(
-                height:
-                    isUpdate ? MediaQuery.of(context).size.height * 0.04 : 0),
+              height: isUpdate ? MediaQuery.of(context).size.height * 0.04 : 0,
+            ),
             isUpdate
                 ? CustomButton(
                     buttonText: 'update_now'.tr,
@@ -61,7 +64,9 @@ class UpdateScreen extends StatelessWidget {
                       if (await canLaunch(_appUrl)) {
                         launch(_appUrl);
                       } else {
-                        showCustomSnackBar('${'can_not_launch'.tr} $_appUrl');
+                        showCustomSnackBar(
+                          '${'can_not_launch'.tr} $_appUrl',
+                        );
                       }
                     })
                 : SizedBox(),

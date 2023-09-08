@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
-import 'package:efood_multivendor_driver/controller/checkbox_controller.dart';
-import 'package:efood_multivendor_driver/controller/localization_controller.dart';
 import 'package:efood_multivendor_driver/controller/order_controller.dart';
 import 'package:efood_multivendor_driver/controller/splash_controller.dart';
 import 'package:efood_multivendor_driver/data/model/body/notification_body.dart';
@@ -20,7 +18,6 @@ import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
 import 'package:efood_multivendor_driver/view/screens/order/widget/order_product_widget.dart';
 import 'package:efood_multivendor_driver/view/screens/order/widget/verify_delivery_sheet.dart';
 import 'package:efood_multivendor_driver/view/screens/order/widget/info_card.dart';
-import 'package:efood_multivendor_driver/view/screens/order/widget/slider_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -75,7 +72,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
     return Scaffold(
       backgroundColor: Theme.of(context).cardColor,
-      appBar: CustomAppBar(title: 'order_details'.tr),
+      appBar: CustomAppBar(
+        title: 'order_details'.tr,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
@@ -129,7 +128,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       physics: BouncingScrollPhysics(),
                       child: Column(children: [
                         DateConverter.isBeforeTime(
-                                controllerOrderModel.scheduleAt)
+                          controllerOrderModel.scheduleAt,
+                        )
                             ? (controllerOrderModel.orderStatus !=
                                         'delivered' &&
                                     controllerOrderModel.orderStatus !=
@@ -138,21 +138,26 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                         'canceled')
                                 ? Column(children: [
                                     ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.asset(
-                                            Images.animate_delivery_man,
-                                            fit: BoxFit.contain)),
+                                      borderRadius: BorderRadius.circular(
+                                        10,
+                                      ),
+                                      child: Image.asset(
+                                        Images.animate_delivery_man,
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
                                     SizedBox(
-                                        height:
-                                            Dimensions.PADDING_SIZE_DEFAULT),
+                                      height: Dimensions.PADDING_SIZE_DEFAULT,
+                                    ),
                                     Text('food_need_to_deliver_within'.tr,
                                         style: robotoRegular.copyWith(
                                           fontSize:
                                               Dimensions.FONT_SIZE_DEFAULT,
                                         )),
                                     SizedBox(
-                                        height: Dimensions
-                                            .PADDING_SIZE_EXTRA_SMALL),
+                                      height:
+                                          Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                                    ),
                                     Center(
                                       child: Row(
                                           mainAxisSize: MainAxisSize.min,
@@ -172,29 +177,32 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                   : '${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt) - 5} '
                                                       '- ${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt)}',
                                               style: robotoBold.copyWith(
-                                                  fontSize: Dimensions
-                                                      .FONT_SIZE_EXTRA_LARGE),
+                                                fontSize: Dimensions
+                                                    .FONT_SIZE_EXTRA_LARGE,
+                                              ),
                                             ),
                                             SizedBox(
-                                                width: Dimensions
-                                                    .PADDING_SIZE_EXTRA_SMALL),
+                                              width: Dimensions
+                                                  .PADDING_SIZE_EXTRA_SMALL,
+                                            ),
                                             Text('min'.tr,
                                                 style: robotoMedium.copyWith(
                                                     fontSize: Dimensions
                                                         .FONT_SIZE_LARGE,
-                                                    color: Theme.of(context)
-                                                        .primaryColor)),
+                                                    color: Theme.of(
+                                                      context,
+                                                    ).primaryColor)),
                                           ]),
                                     ),
                                     SizedBox(
                                         height: Dimensions
-                                            .PADDING_SIZE_EXTRA_LARGE),
+                                            .PADDING_SIZE_EXTRA_LARGE,),
                                   ])
                                 : SizedBox()
                             : SizedBox(),
                         Row(children: [
-                          Text('${'order_id'.tr}:', style: robotoRegular),
-                          SizedBox(width: Dimensions.PADDING_SIZE_EXTRA_SMALL),
+                          Text('${'order_id'.tr}:', style: robotoRegular,),
+                          SizedBox(width: Dimensions.PADDING_SIZE_EXTRA_SMALL,),
                           Text(controllerOrderModel.id.toString(),
                               style: robotoMedium),
                           SizedBox(width: Dimensions.PADDING_SIZE_EXTRA_SMALL),

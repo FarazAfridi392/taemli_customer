@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:efood_multivendor_driver/data/model/body/delivery_man_body.dart';
 import 'package:efood_multivendor_driver/data/model/body/record_location_body.dart';
 import 'package:path/path.dart';

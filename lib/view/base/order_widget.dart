@@ -4,7 +4,6 @@ import 'package:efood_multivendor_driver/util/dimensions.dart';
 import 'package:efood_multivendor_driver/util/images.dart';
 import 'package:efood_multivendor_driver/util/styles.dart';
 import 'package:efood_multivendor_driver/view/base/custom_button.dart';
-import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
 import 'package:efood_multivendor_driver/view/screens/order/order_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

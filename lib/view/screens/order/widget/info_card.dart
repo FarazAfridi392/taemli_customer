@@ -202,7 +202,7 @@ class InfoCard extends StatelessWidget {
                                               InkWell(
                                                 onTap: () async {
                                                   String url =
-                                                      'https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes';
+                                                      'https://waze.com/ul?ll=$latitude,$longitude&navigate=yes';
                                                   // String url ='https://www.google.com/maps/dir/?api=1&destination=$latitude,$longitude&mode=d';
                                                   if (await canLaunchUrlString(
                                                       url)) {
