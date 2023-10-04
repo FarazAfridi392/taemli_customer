@@ -1,4 +1,8 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
 import 'package:efood_multivendor_driver/controller/order_controller.dart';
 import 'package:efood_multivendor_driver/controller/splash_controller.dart';
@@ -15,11 +19,9 @@ import 'package:efood_multivendor_driver/view/base/confirmation_dialog.dart';
 import 'package:efood_multivendor_driver/view/base/custom_app_bar.dart';
 import 'package:efood_multivendor_driver/view/base/custom_button.dart';
 import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
+import 'package:efood_multivendor_driver/view/screens/order/widget/info_card.dart';
 import 'package:efood_multivendor_driver/view/screens/order/widget/order_product_widget.dart';
 import 'package:efood_multivendor_driver/view/screens/order/widget/verify_delivery_sheet.dart';
-import 'package:efood_multivendor_driver/view/screens/order/widget/info_card.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   final int orderId;

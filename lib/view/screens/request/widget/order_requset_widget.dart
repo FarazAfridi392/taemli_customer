@@ -11,6 +11,7 @@ import 'package:efood_multivendor_driver/util/styles.dart';
 import 'package:efood_multivendor_driver/view/base/confirmation_dialog.dart';
 import 'package:efood_multivendor_driver/view/base/custom_button.dart';
 import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
+import 'package:efood_multivendor_driver/view/base/input_dialog.dart';
 import 'package:efood_multivendor_driver/view/screens/order/order_details.dart';
 import 'package:efood_multivendor_driver/view/screens/order/order_details_screen.dart';
 import 'package:flutter/material.dart';
@@ -180,30 +181,68 @@ class OrderRequestWidget extends StatelessWidget {
                       title: 'are_you_sure_to_accept'.tr,
                       description: 'you_want_to_accept_this_order'.tr,
                       onYesPressed: () {
-                        print('======================== THIS');
-                        orderController
-                            .acceptOrder(orderModel.id, index, orderModel)
-                            .then((isSuccess) {
-                          if (isSuccess) {
-                            onTap();
-                            orderModel.orderStatus =
-                                (orderModel.orderStatus == 'pending' ||
-                                        orderModel.orderStatus == 'confirmed')
-                                    ? 'accepted'
-                                    : orderModel.orderStatus;
-                            Get.toNamed(
-                              RouteHelper.getOrderDetailsRoute(orderModel.id),
-                              arguments: OrderDetailsScreen(
-                                orderId: orderModel.id,
-                                isRunningOrder: true,
-                                orderIndex:
-                                    orderController.currentOrderList.length - 1,
-                              ),
-                            );
-                          } else {
-                            Get.find<OrderController>().getLatestOrders();
-                          }
-                        });
+                        Get.back();
+                        Get.dialog(InputDialog(
+                            icon: Images.warning,
+                            title: 'are_you_sure_to_confirm'.tr,
+                            description: 'Enter delivery time in minutes'.tr,
+                            onPressed: (String time) {
+                              Get.back();
+                              orderController
+                                  .acceptOrder(
+                                      orderModel.id, index, orderModel, time)
+                                  .then((success) async {
+                                if (success) {
+                                  onTap();
+                                  orderModel.orderStatus =
+                                      (orderModel.orderStatus == 'pending' ||
+                                              orderModel.orderStatus ==
+                                                  'confirmed')
+                                          ? 'accepted'
+                                          : orderModel.orderStatus;
+                                  Get.toNamed(
+                                    RouteHelper.getOrderDetailsRoute(
+                                        orderModel.id),
+                                    arguments: OrderDetailsScreen(
+                                      orderId: orderModel.id,
+                                      isRunningOrder: true,
+                                      orderIndex: orderController
+                                              .currentOrderList.length -
+                                          1,
+                                    ),
+                                  );
+                                } else {
+                                  Get.find<OrderController>().getLatestOrders();
+                                }
+                              });
+                            },
+                            onCancelled: () {
+                              Get.back();
+                            }));
+                        // print('======================== THIS');
+                        // orderController
+                        //     .acceptOrder(orderModel.id, index, orderModel)
+                        //     .then((isSuccess) {
+                        //   if (isSuccess) {
+                        // onTap();
+                        // orderModel.orderStatus =
+                        //     (orderModel.orderStatus == 'pending' ||
+                        //             orderModel.orderStatus == 'confirmed')
+                        //         ? 'accepted'
+                        //         : orderModel.orderStatus;
+                        // Get.toNamed(
+                        //   RouteHelper.getOrderDetailsRoute(orderModel.id),
+                        //   arguments: OrderDetailsScreen(
+                        //     orderId: orderModel.id,
+                        //     isRunningOrder: true,
+                        //     orderIndex:
+                        //         orderController.currentOrderList.length - 1,
+                        //   ),
+                        // );
+                        // } else {
+                        // Get.find<OrderController>().getLatestOrders();
+                        // }
+                        // });
                       },
                     ),
                     barrierDismissible: false),

@@ -236,10 +236,10 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<bool> acceptOrder(
-      int orderID, int index, OrderModel orderModel) async {
+      int orderID, int index, OrderModel orderModel, String deliveryTime) async {
     _isLoading = true;
     update();
-    Response response = await orderRepo.acceptOrder(orderID);
+    Response response = await orderRepo.acceptOrder(orderID,deliveryTime);
     Get.back();
     bool _isSuccess;
     if (response.statusCode == 200) {

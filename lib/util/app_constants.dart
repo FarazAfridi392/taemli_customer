@@ -5,7 +5,8 @@ class AppConstants {
   static const String APP_NAME = 'Taemli Delivery Boy';
   static const double APP_VERSION = 5.8;
 
-  static const String BASE_URL = 'https://taemli.com';
+  // static const String BASE_URL = 'https://taemli.com';
+  static const String BASE_URL = 'https://taemli.hostdonor.com';
   static const String CONFIG_URI = '/api/v1/config';
   static const String FORGET_PASSWORD_URI =
       '/api/v1/auth/delivery-man/forgot-password';
