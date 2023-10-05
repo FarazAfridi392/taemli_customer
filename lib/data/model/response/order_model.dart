@@ -28,7 +28,6 @@ class PaginatedOrderModel {
     }
     return data;
   }
-
 }
 
 class OrderModel {
@@ -63,41 +62,47 @@ class OrderModel {
   String orderNote;
   DeliveryAddress deliveryAddress;
   Customer customer;
+  String processing;
   int processingTime;
+  String deliveryTime;
+  String delivery;
 
   OrderModel(
       {this.id,
-        this.userId,
-        this.orderAmount,
-        this.couponDiscountAmount,
-        this.paymentStatus,
-        this.orderStatus,
-        this.totalTaxAmount,
-        this.paymentMethod,
-        this.transactionReference,
-        this.deliveryAddressId,
-        this.deliveryManId,
-        this.orderType,
-        this.restaurantId,
-        this.createdAt,
-        this.updatedAt,
-        this.deliveryCharge,
-        this.originalDeliveryCharge,
-        this.dmTips,
-        this.scheduleAt,
-        this.restaurantName,
-        this.restaurantAddress,
-        this.restaurantLat,
-        this.restaurantLng,
-        this.restaurantLogo,
-        this.restaurantPhone,
-        this.restaurantDeliveryTime,
-        this.vendorId,
-        this.detailsCount,
-        this.orderNote,
-        this.deliveryAddress,
-        this.customer,
-        this.processingTime});
+      this.userId,
+      this.orderAmount,
+      this.couponDiscountAmount,
+      this.paymentStatus,
+      this.orderStatus,
+      this.totalTaxAmount,
+      this.paymentMethod,
+      this.transactionReference,
+      this.deliveryAddressId,
+      this.deliveryManId,
+      this.orderType,
+      this.restaurantId,
+      this.createdAt,
+      this.updatedAt,
+      this.deliveryCharge,
+      this.originalDeliveryCharge,
+      this.dmTips,
+      this.scheduleAt,
+      this.restaurantName,
+      this.restaurantAddress,
+      this.restaurantLat,
+      this.restaurantLng,
+      this.restaurantLogo,
+      this.restaurantPhone,
+      this.restaurantDeliveryTime,
+      this.vendorId,
+      this.detailsCount,
+      this.orderNote,
+      this.deliveryAddress,
+      this.customer,
+      this.processingTime,
+      this.processing,
+      this.deliveryTime,
+      this.delivery});
 
   OrderModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -136,6 +141,10 @@ class OrderModel {
         ? new Customer.fromJson(json['customer'])
         : null;
     processingTime = json['processing_time'];
+
+    processing = json['processing'];
+    deliveryTime = json['delivery_time'];
+    delivery = json['delivery'];
   }
 
   Map<String, dynamic> toJson() {
@@ -176,6 +185,10 @@ class OrderModel {
       data['customer'] = this.customer.toJson();
     }
     data['processing_time'] = this.processingTime;
+    data['processing'] = this.processing;
+
+    data['delivery_time'] = this.deliveryTime;
+    data['delivery'] = this.delivery;
     return data;
   }
 }
@@ -198,19 +211,19 @@ class DeliveryAddress {
 
   DeliveryAddress(
       {this.id,
-        this.addressType,
-        this.contactPersonNumber,
-        this.address,
-        this.latitude,
-        this.longitude,
-        this.userId,
-        this.contactPersonName,
-        this.createdAt,
-        this.updatedAt,
-        this.zoneId,
-        this.streetNumber,
-        this.house,
-        this.floor});
+      this.addressType,
+      this.contactPersonNumber,
+      this.address,
+      this.latitude,
+      this.longitude,
+      this.userId,
+      this.contactPersonName,
+      this.createdAt,
+      this.updatedAt,
+      this.zoneId,
+      this.streetNumber,
+      this.house,
+      this.floor});
 
   DeliveryAddress.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -262,14 +275,14 @@ class Customer {
 
   Customer(
       {this.id,
-        this.fName,
-        this.lName,
-        this.phone,
-        this.email,
-        this.image,
-        this.createdAt,
-        this.updatedAt,
-        this.cmFirebaseToken});
+      this.fName,
+      this.lName,
+      this.phone,
+      this.email,
+      this.image,
+      this.createdAt,
+      this.updatedAt,
+      this.cmFirebaseToken});
 
   Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];

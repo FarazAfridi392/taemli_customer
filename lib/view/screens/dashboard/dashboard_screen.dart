@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
 import 'package:efood_multivendor_driver/controller/order_controller.dart';
 import 'package:efood_multivendor_driver/helper/notification_helper.dart';
@@ -16,7 +15,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-
 import '../../../main.dart';
 
 class DashboardScreen extends StatefulWidget {

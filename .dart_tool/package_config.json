@@ -32,6 +32,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "circular_countdown_timer",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/circular_countdown_timer-0.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.1",
       "packageUri": "lib/",
@@ -704,7 +710,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2023-09-28T05:07:17.504202Z",
+  "generated": "2023-10-05T05:01:27.195212Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }
