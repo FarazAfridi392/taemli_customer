@@ -46,7 +46,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   Timer _timer;
 
   void _startApiCalling() {
-    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
+    _timer = Timer.periodic(Duration(seconds: 30), (timer) {
       Get.find<OrderController>()
           .getOrderWithId(Get.find<OrderController>().orderModel.id);
     });
@@ -69,6 +69,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   void dispose() {
     super.dispose();
     _timer?.cancel();
+    
   }
 
   @override
@@ -143,12 +144,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
                 if (controllerOrderModel.deliveryTime != null) {
                 deliveryTotalDuration =
-                    int.parse(controllerOrderModel.deliveryTime) * 60;
+                    int.parse(controllerOrderModel.deliveryTime) * 60 + totalDuration;
               }
 
               if (controllerOrderModel.delivery != null) {
                 DateTime startTime =
-                    DateTime.parse(controllerOrderModel.delivery);
+                    DateTime.parse(controllerOrderModel.processing);
 
                 DateTime currentTime = DateTime.now();
 
@@ -238,7 +239,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                           )),
                                       SizedBox(
                                         height:
-                                            Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                                            Dimensions.PADDING_SIZE_SMALL,
                                       ),
                                       Center(
                                         child: controllerOrderModel
@@ -309,7 +310,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                           )),
                                       SizedBox(
                                         height:
-                                            Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                                            Dimensions.PADDING_SIZE_SMALL,
                                       ),
                                       Center(
                                         child: controllerOrderModel
@@ -320,7 +321,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                     .id
                                                     .toString(),
                                                 controller: controller,
-                                                totalDuration: deliveryTotalDuration + totalDuration,
+                                                totalDuration: deliveryTotalDuration,
                                                 initialDuration:
                                                     deliveryInitialDuration)
                                             : Row(
@@ -1040,7 +1041,7 @@ class _CircularCountdownState extends State<CircularCountdown> {
       duration: widget.totalDuration,
       initialDuration: widget.initialDuration,
       controller: widget.controller,
-      width: MediaQuery.of(context).size.width / 14,
+      width: MediaQuery.of(context).size.height / 14,
       height: MediaQuery.of(context).size.height / 14,
       ringColor: Colors.grey[300],
       ringGradient: null,

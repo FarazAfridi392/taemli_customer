@@ -46,22 +46,19 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _loadData();
-    
   }
 
- @override
+  @override
   void dispose() {
     super.dispose();
     _timer.cancel();
   }
 
-
   @override
   Widget build(BuildContext context) {
-    _timer = Timer.periodic(Duration(seconds: 15), (timer){
+    _timer = Timer.periodic(Duration(seconds: 15), (timer) {
       _loadData();
     });
-    
 
     return Scaffold(
       appBar: AppBar(
@@ -220,11 +217,21 @@ class _HomeScreenState extends State<HomeScreen> {
                           isEnabled: orderController.currentOrderList == null,
                         )
                       : orderController.currentOrderList.length > 0
-                          ? OrderWidget(
-                              orderModel: orderController.currentOrderList[0],
-                              isRunningOrder: true,
-                              orderIndex: 0,
-                            )
+                          ? Container(
+                            height: 500,
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                                itemBuilder: ((context, index) {
+                                  return OrderWidget(
+                                    orderModel:
+                                        orderController.currentOrderList[index],
+                                    isRunningOrder: true,
+                                    orderIndex: 0,
+                                  );
+                                }),
+                                itemCount: orderController.currentOrderList.length,
+                              ),
+                          )
                           : SizedBox(),
                   SizedBox(
                       height: _hasActiveOrder
