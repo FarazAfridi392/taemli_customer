@@ -9,7 +9,13 @@ class ApiChecker {
       Get.find<AuthController>().clearSharedData();
       Get.find<AuthController>().stopLocationRecord();
       Get.offAllNamed(RouteHelper.getSignInRoute());
-    }else {
+    }
+    else if (response.statusCode == 508 || response.statusCode == 429){
+
+      return;
+        
+      }
+    else {
       showCustomSnackBar(response.statusText);
     }
   }

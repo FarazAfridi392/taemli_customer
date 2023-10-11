@@ -140,14 +140,15 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
              
 
-              if (controllerOrderModel.delivery != null) {
+              if (controllerOrderModel.deliveryTime != null) {
 
                 if (controllerOrderModel.deliveryTime != null) {
                 deliveryTotalDuration =
-                    int.parse(controllerOrderModel.deliveryTime) * 60 + totalDuration;
+                    (int.parse(controllerOrderModel.deliveryTime) * 60) + totalDuration ;
               }
+              print(deliveryInitialDuration.toString() + 'hello');
 
-              if (controllerOrderModel.delivery != null) {
+              if (controllerOrderModel.deliveryTime != null) {
                 DateTime startTime =
                     DateTime.parse(controllerOrderModel.processing);
 
@@ -170,6 +171,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   deliveryInitialDuration = deliveryTotalDuration;
                 }
               }
+              // print(deliveryInitialDuration);
+              // print(deliveryTotalDuration);
                 
               }
               _showBottomView =
@@ -314,7 +317,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                       ),
                                       Center(
                                         child: controllerOrderModel
-                                                    .delivery !=
+                                                    .deliveryTime !=
                                                 null
                                             ? CircularCountdown(
                                                 orderKey: controllerOrderModel

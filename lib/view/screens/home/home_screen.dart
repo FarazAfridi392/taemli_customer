@@ -217,21 +217,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           isEnabled: orderController.currentOrderList == null,
                         )
                       : orderController.currentOrderList.length > 0
-                          ? Container(
-                            height: 500,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                                itemBuilder: ((context, index) {
-                                  return OrderWidget(
-                                    orderModel:
-                                        orderController.currentOrderList[index],
-                                    isRunningOrder: true,
-                                    orderIndex: 0,
-                                  );
-                                }),
-                                itemCount: orderController.currentOrderList.length,
-                              ),
-                          )
+                          ? ListView.builder(
+                            shrinkWrap: true,
+                              itemBuilder: ((context, index) {
+                                return OrderWidget(
+                                  orderModel:
+                                      orderController.currentOrderList[index],
+                                  isRunningOrder: true,
+                                  orderIndex: 0,
+                                );
+                              }),
+                              itemCount: orderController.currentOrderList.length,
+                            )
                           : SizedBox(),
                   SizedBox(
                       height: _hasActiveOrder
