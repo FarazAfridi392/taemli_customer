@@ -26,6 +26,7 @@ class OrderController extends GetxController implements GetxService {
   List<int> _isCheckedValues = [];
 
   bool _isLoading = false;
+  bool _isStatusUpdatedLoading = false;
   Position _position = Position(
       longitude: 0,
       latitude: 0,
@@ -53,6 +54,7 @@ class OrderController extends GetxController implements GetxService {
   List<OrderModel> get latestOrderList => _latestOrderList;
   List<OrderDetailsModel> get orderDetailsModel => _orderDetailsModel;
   bool get isLoading => _isLoading;
+  bool get isStatusUpdatedLoading => _isStatusUpdatedLoading;
   Position get position => _position;
   Placemark get placeMark => _placeMark;
   String get address =>
@@ -63,7 +65,6 @@ class OrderController extends GetxController implements GetxService {
   int get offset => _offset;
   OrderModel get orderModel => _orderModel;
   List<int> get isCheckedValues => _isCheckedValues;
-  
 
   Future<void> getAllOrders() async {
     Response response = await orderRepo.getAllOrders();
@@ -171,14 +172,20 @@ class OrderController extends GetxController implements GetxService {
     }
   }
 
-  Future<bool> updateOrderStatus(int id, int index, String status,
-      {bool back = false}) async {
-    _isLoading = true;
+  Future<bool> updateOrderStatus(
+    int id,
+    int index,
+    String status, {
+    bool back = false,
+    String deliveryTime,
+  }) async {
+    _isStatusUpdatedLoading = true;
     update();
     UpdateStatusBody _updateStatusBody = UpdateStatusBody(
       orderId: id ?? _currentOrderList[index].id,
       status: status,
       otp: status == 'delivered' ? _otp : null,
+      deliveryTime: deliveryTime ?? null,
     );
     Response response = await orderRepo.updateOrderStatus(_updateStatusBody);
     Get.back();
@@ -200,7 +207,7 @@ class OrderController extends GetxController implements GetxService {
       ApiChecker.checkApi(response);
       _isSuccess = false;
     }
-    _isLoading = false;
+    _isStatusUpdatedLoading = false;
     update();
     return _isSuccess;
   }
@@ -236,10 +243,15 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<bool> acceptOrder(
-      int orderID, int index, OrderModel orderModel, String deliveryTime) async {
+    int orderID,
+    int index,
+    OrderModel orderModel,
+  ) async {
     _isLoading = true;
     update();
-    Response response = await orderRepo.acceptOrder(orderID,deliveryTime);
+    Response response = await orderRepo.acceptOrder(
+      orderID,
+    );
     Get.back();
     bool _isSuccess;
     if (response.statusCode == 200) {
@@ -256,6 +268,7 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<bool> isChecked(int orderId, int foodItemId, int isChecked) async {
+    // _isLoading = true;
     Response response =
         await orderRepo.updateIsChecked(orderId, foodItemId, isChecked);
 
@@ -268,7 +281,7 @@ class OrderController extends GetxController implements GetxService {
       ApiChecker.checkApi(response);
       _isSuccess = false;
     }
-    _isLoading = false;
+    // _isLoading = false;
     update();
     return _isSuccess;
   }

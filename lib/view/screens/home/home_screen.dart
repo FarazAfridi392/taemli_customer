@@ -29,6 +29,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Timer _timer;
+
+  void _startApiCalling()  {
+    _timer = Timer.periodic(Duration(seconds: 30), (timer) async {
+     await Get.find<OrderController>().getCurrentOrders();
+    });
+  }
   Future<void> _loadData() async {
     Get.find<OrderController>().getIgnoreList();
     Get.find<OrderController>().removeFromIgnoreList();
@@ -45,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _startApiCalling() ;
     _loadData();
   }
 
@@ -56,9 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _timer = Timer.periodic(Duration(seconds: 15), (timer) {
-      _loadData();
-    });
+   
 
     return Scaffold(
       appBar: AppBar(

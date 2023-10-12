@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:efood_multivendor_driver/view/base/input_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
@@ -45,11 +46,18 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   int deliveryInitialDuration;
   Timer _timer;
 
+  
+
   void _startApiCalling() {
-    _timer = Timer.periodic(Duration(seconds: 30), (timer) {
-      Get.find<OrderController>()
-          .getOrderWithId(Get.find<OrderController>().orderModel.id);
-    });
+    _timer = Timer.periodic(
+      Duration(seconds: 30),
+      (timer) {
+        Get.find<OrderController>()
+            .getOrderWithId(Get.find<OrderController>().orderModel.id);
+        // Get.find<OrderController>().getOrderDetails(widget.orderId);
+       
+      },
+    );
   }
 
   Future<void> _loadData() async {
@@ -69,7 +77,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   void dispose() {
     super.dispose();
     _timer?.cancel();
-    
   }
 
   @override
@@ -109,6 +116,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             if (controllerOrderModel != null) {
               if (controllerOrderModel.processingTime != null) {
                 totalDuration = controllerOrderModel.processingTime * 60;
+              } else {
+                totalDuration = 0;
               }
 
               if (controllerOrderModel.processingTime != null) {
@@ -129,51 +138,45 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               }
 
               if (controllerOrderModel.processingTime != null) {
-                
                 if (timeRemainingInSeconds <= totalDuration) {
                   initialDuration = timeRemainingInSeconds;
-                 
                 } else {
                   initialDuration = totalDuration;
                 }
               }
 
-             
-
               if (controllerOrderModel.deliveryTime != null) {
+                if (controllerOrderModel.deliveryTime != null) {
+                  deliveryTotalDuration =
+                      (int.parse(controllerOrderModel.deliveryTime) * 60);
+                }
+
+                // print(deliveryTotalDuration.toString() + 'hello');
+
+                if (controllerOrderModel.processing != null) {
+                  DateTime startTime =
+                      DateTime.parse(controllerOrderModel.delivery);
+
+                  DateTime currentTime = DateTime.now();
+
+                  // if (controllerOrderModel.orderStatus == 'processing') {
+                  //   print(widget.orderModel.id);
+                  //   print(widget.orderModel.processingTime);
+                  // }
+
+                  deliveryTimeRemainingInSeconds =
+                      startTime.isBefore(currentTime)
+                          ? currentTime.difference(startTime).inSeconds
+                          : 0;
+                }
 
                 if (controllerOrderModel.deliveryTime != null) {
-                deliveryTotalDuration =
-                    (int.parse(controllerOrderModel.deliveryTime) * 60) + totalDuration ;
-              }
-              print(deliveryInitialDuration.toString() + 'hello');
-
-              if (controllerOrderModel.deliveryTime != null) {
-                DateTime startTime =
-                    DateTime.parse(controllerOrderModel.processing);
-
-                DateTime currentTime = DateTime.now();
-
-                // if (controllerOrderModel.orderStatus == 'processing') {
-                //   print(widget.orderModel.id);
-                //   print(widget.orderModel.processingTime);
-                // }
-
-                deliveryTimeRemainingInSeconds = startTime.isBefore(currentTime)
-                    ? currentTime.difference(startTime).inSeconds
-                    : 0;
-              }
-
-              if (controllerOrderModel.deliveryTime != null) {
-                if (deliveryTimeRemainingInSeconds <= deliveryTotalDuration) {
-                  deliveryInitialDuration = deliveryTimeRemainingInSeconds;
-                } else {
-                  deliveryInitialDuration = deliveryTotalDuration;
+                  if (deliveryTimeRemainingInSeconds <= deliveryTotalDuration) {
+                    deliveryInitialDuration = deliveryTimeRemainingInSeconds;
+                  } else {
+                    deliveryInitialDuration = deliveryTotalDuration;
+                  }
                 }
-              }
-              // print(deliveryInitialDuration);
-              // print(deliveryTotalDuration);
-                
               }
               _showBottomView =
                   controllerOrderModel.orderStatus == 'accepted' ||
@@ -204,6 +207,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             // }
 
             print(orderController.isCheckedValues);
+            // print(deliveryInitialDuration);
+            //   print(deliveryTotalDuration);
 
             return (orderController.orderDetailsModel != null &&
                     controllerOrderModel != null)
@@ -241,8 +246,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                 Dimensions.FONT_SIZE_DEFAULT,
                                           )),
                                       SizedBox(
-                                        height:
-                                            Dimensions.PADDING_SIZE_SMALL,
+                                        height: Dimensions.PADDING_SIZE_SMALL,
                                       ),
                                       Center(
                                         child: controllerOrderModel
@@ -312,8 +316,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                 Dimensions.FONT_SIZE_DEFAULT,
                                           )),
                                       SizedBox(
-                                        height:
-                                            Dimensions.PADDING_SIZE_SMALL,
+                                        height: Dimensions.PADDING_SIZE_SMALL,
                                       ),
                                       Center(
                                         child: controllerOrderModel
@@ -324,7 +327,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                     .id
                                                     .toString(),
                                                 controller: controller,
-                                                totalDuration: deliveryTotalDuration,
+                                                totalDuration:
+                                                    deliveryTotalDuration,
                                                 initialDuration:
                                                     deliveryInitialDuration)
                                             : Row(
@@ -727,7 +731,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                       ])
                                     : GetBuilder<OrderController>(
                                         builder: (con) {
-                                        return con.isLoading
+                                        return con.isStatusUpdatedLoading
                                             ? Center(
                                                 child:
                                                     CircularProgressIndicator(),
@@ -831,34 +835,51 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                     } else if (controllerOrderModel
                                                             .orderStatus ==
                                                         'handover') {
-                                                      if (Get.find<
-                                                                  AuthController>()
-                                                              .profileModel
-                                                              .active ==
-                                                          1) {
-                                                        Get.find<
-                                                                OrderController>()
-                                                            .updateOrderStatus(
-                                                                controllerOrderModel
-                                                                    .id,
-                                                                widget
-                                                                    .orderIndex,
-                                                                'picked_up')
-                                                            .then((success) {
-                                                          if (success) {
-                                                            Get.find<
-                                                                    AuthController>()
-                                                                .getProfile();
-                                                            Get.find<
-                                                                    OrderController>()
-                                                                .getCurrentOrders();
-                                                          }
-                                                        });
-                                                      } else {
-                                                        showCustomSnackBar(
-                                                            'make_yourself_online_first'
-                                                                .tr);
-                                                      }
+                                                      Get.dialog(InputDialog(
+                                                          icon: Images.warning,
+                                                          title:
+                                                              'are_you_sure_to_confirm'
+                                                                  .tr,
+                                                          description:
+                                                              'Enter delivery time in minutes'
+                                                                  .tr,
+                                                          onPressed:
+                                                              (String time) {
+                                                            if (Get.find<
+                                                                        AuthController>()
+                                                                    .profileModel
+                                                                    .active ==
+                                                                1) {
+                                                              Get.find<
+                                                                      OrderController>()
+                                                                  .updateOrderStatus(
+                                                                      controllerOrderModel
+                                                                          .id,
+                                                                      widget
+                                                                          .orderIndex,
+                                                                      'picked_up',
+                                                                      deliveryTime:
+                                                                          time)
+                                                                  .then(
+                                                                      (success) {
+                                                                if (success) {
+                                                                  Get.find<
+                                                                          AuthController>()
+                                                                      .getProfile();
+                                                                  Get.find<
+                                                                          OrderController>()
+                                                                      .getCurrentOrders();
+                                                                }
+                                                              });
+                                                            } else {
+                                                              showCustomSnackBar(
+                                                                  'make_yourself_online_first'
+                                                                      .tr);
+                                                            }
+                                                          },
+                                                          onCancelled: () {
+                                                            Get.back();
+                                                          }));
                                                     }
                                                   },
                                                   child: Text(

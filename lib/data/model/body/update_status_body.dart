@@ -3,9 +3,10 @@ class UpdateStatusBody {
   int orderId;
   String status;
   String otp;
+  String deliveryTime;
   String method = 'put';
 
-  UpdateStatusBody({this.token, this.orderId, this.status, this.otp});
+  UpdateStatusBody({this.token, this.orderId, this.status, this.otp,this.deliveryTime});
 
   UpdateStatusBody.fromJson(Map<String, dynamic> json) {
     token = json['token'];
@@ -13,6 +14,7 @@ class UpdateStatusBody {
     status = json['status'];
     otp = json['otp'];
     status = json['_method'];
+    deliveryTime = json['delivery_time'];
   }
 
   Map<String, dynamic> toJson() {
@@ -22,6 +24,7 @@ class UpdateStatusBody {
     data['status'] = this.status;
     data['otp'] = this.otp;
     data['_method'] = this.method;
+    data['delivery_time'] = this.deliveryTime;
     return data;
   }
 }

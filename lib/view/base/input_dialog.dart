@@ -200,9 +200,8 @@ class _InputDialogState extends State<InputDialog> {
                     textAlign: TextAlign.center),
                 SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
                 GetBuilder<OrderController>(builder: (orderController) {
-                  return (orderController.isLoading)
-                      ? Center(child: CircularProgressIndicator())
-                      : Row(children: [
+                  return 
+                      Row(children: [
                           Expanded(
                               child: CustomButton(
                             buttonText: 'submit'.tr,
