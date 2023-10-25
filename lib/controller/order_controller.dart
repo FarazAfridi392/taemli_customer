@@ -179,7 +179,7 @@ class OrderController extends GetxController implements GetxService {
     bool back = false,
     String deliveryTime,
   }) async {
-    _isStatusUpdatedLoading = true;
+    _isLoading = true;
     update();
     UpdateStatusBody _updateStatusBody = UpdateStatusBody(
       orderId: id ?? _currentOrderList[index].id,
@@ -207,8 +207,9 @@ class OrderController extends GetxController implements GetxService {
       ApiChecker.checkApi(response);
       _isSuccess = false;
     }
-    _isStatusUpdatedLoading = false;
+    _isLoading = false;
     update();
+
     return _isSuccess;
   }
 

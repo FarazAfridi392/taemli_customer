@@ -46,16 +46,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   int deliveryInitialDuration;
   Timer _timer;
 
-  
-
   void _startApiCalling() {
     _timer = Timer.periodic(
-      Duration(seconds: 30),
+      Duration(seconds: 10),
       (timer) {
         Get.find<OrderController>()
-            .getOrderWithId(Get.find<OrderController>().orderModel.id);
+            .getOrderWithId(widget.orderId);
         // Get.find<OrderController>().getOrderDetails(widget.orderId);
-       
       },
     );
   }
@@ -82,6 +79,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     CountDownController controller = CountDownController();
+
     bool _cancelPermission =
         Get.find<SplashController>().configModel.canceledByDeliveryman;
     bool _selfDelivery =
@@ -178,6 +176,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   }
                 }
               }
+
+              //    if(controllerOrderModel.orderStatus == 'handover'){
+              //   controller.reset();
+              // }
               _showBottomView =
                   controllerOrderModel.orderStatus == 'accepted' ||
                       controllerOrderModel.orderStatus == 'confirmed' ||
@@ -249,62 +251,84 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                         height: Dimensions.PADDING_SIZE_SMALL,
                                       ),
                                       Center(
-                                        child: controllerOrderModel
-                                                    .processingTime !=
-                                                null
-                                            ? CircularCountdown(
-                                                orderKey: controllerOrderModel
-                                                    .id
-                                                    .toString(),
-                                                controller: controller,
-                                                totalDuration: totalDuration,
-                                                initialDuration:
-                                                    initialDuration)
-                                            : Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                    // Text(
-                                                    //   DateConverter.differenceInMinute(
-                                                    //               controllerOrderModel
-                                                    //                   .restaurantDeliveryTime,
-                                                    //               controllerOrderModel
-                                                    //                   .createdAt,
-                                                    //               controllerOrderModel
-                                                    //                   .processingTime,
-                                                    //               controllerOrderModel
-                                                    //                   .scheduleAt) <
-                                                    //           5
-                                                    //       ? '1 - 5'
-                                                    //       : '${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt) - 5} '
-                                                    //           '- ${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt)}',
-                                                    //   style: robotoBold.copyWith(
-                                                    //     fontSize: Dimensions
-                                                    //         .FONT_SIZE_EXTRA_LARGE,
-                                                    //   ),
-                                                    // ),
+                                        child:
+                                            controllerOrderModel
+                                                            .processingTime !=
+                                                        null &&
+                                                    controllerOrderModel
+                                                            .processingTime !=
+                                                        0
+                                                ? CircularCountdown(
+                                                    orderKey:
+                                                        controllerOrderModel.id
+                                                            .toString(),
+                                                    controller: controller,
+                                                    totalDuration:
+                                                        totalDuration,
+                                                    initialDuration:
+                                                        initialDuration)
+                                                : (controllerOrderModel
+                                                                .orderStatus ==
+                                                            'handover' ||
+                                                        controllerOrderModel
+                                                                .orderStatus ==
+                                                            'picked_up')
+                                                    ? Text(
+                                                        'Food is already cooked',
+                                                        style:
+                                                            robotoBold.copyWith(
+                                                          fontSize: Dimensions
+                                                              .FONT_SIZE_EXTRA_LARGE,
+                                                        ),
+                                                      )
+                                                    : Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                            // Text(
+                                                            //   DateConverter.differenceInMinute(
+                                                            //               controllerOrderModel
+                                                            //                   .restaurantDeliveryTime,
+                                                            //               controllerOrderModel
+                                                            //                   .createdAt,
+                                                            //               controllerOrderModel
+                                                            //                   .processingTime,
+                                                            //               controllerOrderModel
+                                                            //                   .scheduleAt) <
+                                                            //           5
+                                                            //       ? '1 - 5'
+                                                            //       : '${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt) - 5} '
+                                                            //           '- ${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt)}',
+                                                            //   style: robotoBold.copyWith(
+                                                            //     fontSize: Dimensions
+                                                            //         .FONT_SIZE_EXTRA_LARGE,
+                                                            //   ),
+                                                            // ),
 
-                                                    Text(
-                                                      '---',
-                                                      style:
-                                                          robotoBold.copyWith(
-                                                        fontSize: Dimensions
-                                                            .FONT_SIZE_EXTRA_LARGE,
-                                                      ),
-                                                    ),
-
-                                                    SizedBox(
-                                                      width: Dimensions
-                                                          .PADDING_SIZE_EXTRA_SMALL,
-                                                    ),
-                                                    Text('min'.tr,
-                                                        style: robotoMedium
-                                                            .copyWith(
+                                                            Text(
+                                                              '---',
+                                                              style: robotoBold
+                                                                  .copyWith(
                                                                 fontSize: Dimensions
-                                                                    .FONT_SIZE_LARGE,
-                                                                color: Theme.of(
-                                                                  context,
-                                                                ).primaryColor)),
-                                                  ]),
+                                                                    .FONT_SIZE_EXTRA_LARGE,
+                                                              ),
+                                                            ),
+
+                                                            SizedBox(
+                                                              width: Dimensions
+                                                                  .PADDING_SIZE_EXTRA_SMALL,
+                                                            ),
+                                                            Text('min'.tr,
+                                                                style: robotoMedium
+                                                                    .copyWith(
+                                                                        fontSize:
+                                                                            Dimensions
+                                                                                .FONT_SIZE_LARGE,
+                                                                        color: Theme
+                                                                            .of(
+                                                                          context,
+                                                                        ).primaryColor)),
+                                                          ]),
                                       ),
                                       SizedBox(
                                         height:
@@ -323,9 +347,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                     .deliveryTime !=
                                                 null
                                             ? CircularCountdown(
-                                                orderKey: controllerOrderModel
-                                                    .id
-                                                    .toString(),
+                                                // orderKey: controllerOrderModel
+                                                //     .id
+                                                //     .toString(),
                                                 controller: controller,
                                                 totalDuration:
                                                     deliveryTotalDuration,
@@ -731,7 +755,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                       ])
                                     : GetBuilder<OrderController>(
                                         builder: (con) {
-                                        return con.isStatusUpdatedLoading
+                                          print(con.isLoading);
+                                        return 
+                                        con.isLoading
                                             ? Center(
                                                 child:
                                                     CircularProgressIndicator(),
@@ -1040,7 +1066,7 @@ class CircularCountdown extends StatefulWidget {
     @required this.totalDuration,
     @required this.initialDuration,
     @required this.controller,
-    @required this.orderKey,
+    this.orderKey,
   }) : super(key: key);
   String orderKey;
   CountDownController controller;
