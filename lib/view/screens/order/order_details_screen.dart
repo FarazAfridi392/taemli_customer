@@ -48,11 +48,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   void _startApiCalling() {
     _timer = Timer.periodic(
-      Duration(seconds: 10),
+      Duration(seconds: 30),
       (timer) {
-        Get.find<OrderController>()
-            .getOrderWithId(widget.orderId);
-        // Get.find<OrderController>().getOrderDetails(widget.orderId);
+        Get.find<OrderController>().getOrderWithId(widget.orderId);
+        Get.find<OrderController>().getOrderDetails(widget.orderId);
       },
     );
   }
@@ -66,8 +65,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   void initState() {
     super.initState();
 
-    _startApiCalling();
     _loadData();
+    _startApiCalling();
   }
 
   @override
@@ -151,7 +150,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
                 // print(deliveryTotalDuration.toString() + 'hello');
 
-                if (controllerOrderModel.processing != null) {
+                if (controllerOrderModel.deliveryTime != null) {
                   DateTime startTime =
                       DateTime.parse(controllerOrderModel.delivery);
 
@@ -358,77 +357,89 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                             : Row(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
-                                                    // Text(
-                                                    //   DateConverter.differenceInMinute(
-                                                    //               controllerOrderModel
-                                                    //                   .restaurantDeliveryTime,
-                                                    //               controllerOrderModel
-                                                    //                   .createdAt,
-                                                    //               controllerOrderModel
-                                                    //                   .processingTime,
-                                                    //               controllerOrderModel
-                                                    //                   .scheduleAt) <
-                                                    //           5
-                                                    //       ? '1 - 5'
-                                                    //       : '${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt) - 5} '
-                                                    //           '- ${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt)}',
-                                                    //   style: robotoBold.copyWith(
-                                                    //     fontSize: Dimensions
-                                                    //         .FONT_SIZE_EXTRA_LARGE,
-                                                    //   ),
-                                                    // ),
+                                                  // Text(
+                                                  //   DateConverter.differenceInMinute(
+                                                  //               controllerOrderModel
+                                                  //                   .restaurantDeliveryTime,
+                                                  //               controllerOrderModel
+                                                  //                   .createdAt,
+                                                  //               controllerOrderModel
+                                                  //                   .processingTime,
+                                                  //               controllerOrderModel
+                                                  //                   .scheduleAt) <
+                                                  //           5
+                                                  //       ? '1 - 5'
+                                                  //       : '${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt) - 5} '
+                                                  //           '- ${DateConverter.differenceInMinute(controllerOrderModel.restaurantDeliveryTime, controllerOrderModel.createdAt, controllerOrderModel.processingTime, controllerOrderModel.scheduleAt)}',
+                                                  //   style: robotoBold.copyWith(
+                                                  //     fontSize: Dimensions
+                                                  //         .FONT_SIZE_EXTRA_LARGE,
+                                                  //   ),
+                                                  // ),
 
-                                                    Text(
-                                                      '---',
+                                                  Text(
+                                                    '---',
+                                                    style: robotoBold.copyWith(
+                                                      fontSize: Dimensions
+                                                          .FONT_SIZE_EXTRA_LARGE,
+                                                    ),
+                                                  ),
+
+                                                  SizedBox(
+                                                    width: Dimensions
+                                                        .PADDING_SIZE_EXTRA_SMALL,
+                                                  ),
+                                                  Text('min'.tr,
                                                       style:
-                                                          robotoBold.copyWith(
-                                                        fontSize: Dimensions
-                                                            .FONT_SIZE_EXTRA_LARGE,
-                                                      ),
-                                                    ),
-
-                                                    SizedBox(
-                                                      width: Dimensions
-                                                          .PADDING_SIZE_EXTRA_SMALL,
-                                                    ),
-                                                    Text('min'.tr,
-                                                        style: robotoMedium
-                                                            .copyWith(
-                                                                fontSize: Dimensions
-                                                                    .FONT_SIZE_LARGE,
-                                                                color: Theme.of(
-                                                                  context,
-                                                                ).primaryColor)),
-                                                  ]),
+                                                          robotoMedium.copyWith(
+                                                              fontSize: Dimensions
+                                                                  .FONT_SIZE_LARGE,
+                                                              color: Theme.of(
+                                                                context,
+                                                              ).primaryColor)),
+                                                ],
+                                              ),
                                       ),
                                     ],
                                   )
                                 : SizedBox()
                             : SizedBox(),
-                        Row(children: [
-                          Text(
-                            '${'order_id'.tr}:',
-                            style: robotoRegular,
-                          ),
-                          SizedBox(
-                            width: Dimensions.PADDING_SIZE_EXTRA_SMALL,
-                          ),
-                          Text(controllerOrderModel.id.toString(),
-                              style: robotoMedium),
-                          SizedBox(width: Dimensions.PADDING_SIZE_EXTRA_SMALL),
-                          Expanded(child: SizedBox()),
-                          Container(
+                        Row(
+                          children: [
+                            Text(
+                              '${'order_id'.tr}:',
+                              style: robotoRegular,
+                            ),
+                            SizedBox(
+                              width: Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                            ),
+                            Text(controllerOrderModel.id.toString(),
+                                style: robotoMedium),
+                            SizedBox(
+                              width: Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                            ),
+                            Expanded(
+                              child: SizedBox(),
+                            ),
+                            Container(
                               height: 7,
                               width: 7,
                               decoration: BoxDecoration(
-                                  shape: BoxShape.circle, color: Colors.green)),
-                          SizedBox(width: Dimensions.PADDING_SIZE_EXTRA_SMALL),
-                          Text(
-                            controllerOrderModel.orderStatus.tr ?? '',
-                            style: robotoRegular,
-                          ),
-                        ]),
-                        SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
+                                shape: BoxShape.circle,
+                                color: Colors.green,
+                              ),
+                            ),
+                            SizedBox(
+                                width: Dimensions.PADDING_SIZE_EXTRA_SMALL),
+                            Text(
+                              controllerOrderModel.orderStatus.tr ?? '',
+                              style: robotoRegular,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: Dimensions.PADDING_SIZE_LARGE,
+                        ),
                         InfoCard(
                           title: 'restaurant_details'.tr,
                           addressModel: DeliveryAddress(
@@ -446,21 +457,25 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           orderModel: controllerOrderModel,
                           messageOnTap: () async {
                             _timer?.cancel();
-                            await Get.toNamed(RouteHelper.getChatRoute(
-                              notificationBody: NotificationBody(
-                                orderId: controllerOrderModel.id,
-                                vendorId: controllerOrderModel.vendorId,
+                            await Get.toNamed(
+                              RouteHelper.getChatRoute(
+                                notificationBody: NotificationBody(
+                                  orderId: controllerOrderModel.id,
+                                  vendorId: controllerOrderModel.vendorId,
+                                ),
+                                user: User(
+                                  id: controllerOrderModel.vendorId,
+                                  fName: controllerOrderModel.restaurantName,
+                                  image: controllerOrderModel.restaurantLogo,
+                                ),
                               ),
-                              user: User(
-                                id: controllerOrderModel.vendorId,
-                                fName: controllerOrderModel.restaurantName,
-                                image: controllerOrderModel.restaurantLogo,
-                              ),
-                            ));
+                            );
                             _startApiCalling();
                           },
                         ),
-                        SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
+                        SizedBox(
+                          height: Dimensions.PADDING_SIZE_LARGE,
+                        ),
                         InfoCard(
                           title: 'customer_contact_details'.tr,
                           addressModel: controllerOrderModel.deliveryAddress,
@@ -484,25 +499,30 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           messageOnTap: () async {
                             if (controllerOrderModel.customer != null) {
                               _timer?.cancel();
-                              await Get.toNamed(RouteHelper.getChatRoute(
-                                notificationBody: NotificationBody(
-                                  orderId: controllerOrderModel.id,
-                                  customerId: controllerOrderModel.customer.id,
+                              await Get.toNamed(
+                                RouteHelper.getChatRoute(
+                                  notificationBody: NotificationBody(
+                                    orderId: controllerOrderModel.id,
+                                    customerId:
+                                        controllerOrderModel.customer.id,
+                                  ),
+                                  user: User(
+                                    id: controllerOrderModel.customer.id,
+                                    fName: controllerOrderModel.customer.fName,
+                                    lName: controllerOrderModel.customer.lName,
+                                    image: controllerOrderModel.customer.image,
+                                  ),
                                 ),
-                                user: User(
-                                  id: controllerOrderModel.customer.id,
-                                  fName: controllerOrderModel.customer.fName,
-                                  lName: controllerOrderModel.customer.lName,
-                                  image: controllerOrderModel.customer.image,
-                                ),
-                              ));
+                              );
                               _startApiCalling();
                             } else {
                               showCustomSnackBar('${'customer_not_found'.tr}');
                             }
                           },
                         ),
-                        SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
+                        SizedBox(
+                          height: Dimensions.PADDING_SIZE_LARGE,
+                        ),
                         Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -511,10 +531,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     vertical:
                                         Dimensions.PADDING_SIZE_EXTRA_SMALL),
                                 child: Row(children: [
-                                  Text('${'item'.tr}:', style: robotoRegular),
+                                  Text(
+                                    '${'item'.tr}:',
+                                    style: robotoRegular,
+                                  ),
                                   SizedBox(
-                                      width:
-                                          Dimensions.PADDING_SIZE_EXTRA_SMALL),
+                                    width: Dimensions.PADDING_SIZE_EXTRA_SMALL,
+                                  ),
                                   Text(
                                     orderController.orderDetailsModel.length
                                         .toString(),
@@ -529,8 +552,11 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                         vertical: Dimensions
                                             .PADDING_SIZE_EXTRA_SMALL),
                                     decoration: BoxDecoration(
-                                        color: Theme.of(context).primaryColor,
-                                        borderRadius: BorderRadius.circular(5)),
+                                      color: Theme.of(context).primaryColor,
+                                      borderRadius: BorderRadius.circular(
+                                        5,
+                                      ),
+                                    ),
                                     child: Text(
                                       controllerOrderModel.paymentMethod ==
                                               'cash_on_delivery'
@@ -541,15 +567,20 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                               ? 'wallet_payment'.tr
                                               : 'digitally_paid'.tr,
                                       style: robotoRegular.copyWith(
-                                          fontSize:
-                                              Dimensions.FONT_SIZE_EXTRA_SMALL,
-                                          color: Theme.of(context).cardColor),
+                                        fontSize:
+                                            Dimensions.FONT_SIZE_EXTRA_SMALL,
+                                        color: Theme.of(context).cardColor,
+                                      ),
                                     ),
                                   ),
                                 ]),
                               ),
-                              Divider(height: Dimensions.PADDING_SIZE_LARGE),
-                              SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
+                              Divider(
+                                height: Dimensions.PADDING_SIZE_LARGE,
+                              ),
+                              SizedBox(
+                                height: Dimensions.PADDING_SIZE_SMALL,
+                              ),
                               ListView.builder(
                                 shrinkWrap: true,
                                 physics: NeverScrollableScrollPhysics(),
@@ -564,20 +595,23 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                   // print('Hello World');
 
                                   return OrderProductWidget(
-                                      order: controllerOrderModel,
-                                      orderDetails: orderController
-                                          .orderDetailsModel[index],
-                                      onChanged: (bool) {
-                                        orderController.addCheck(
-                                          item.orderId,
-                                          item.foodId,
-                                          bool == false ? 0 : 1,
-                                        );
-                                      },
-                                      // value: ischecked ?? false,
-                                      // value: item.isChecked == 0 ? false : true,
-                                      value: orderController.isCheckedValues
-                                          .contains(item.foodId));
+                                    order: controllerOrderModel,
+                                    orderDetails: orderController
+                                        .orderDetailsModel[index],
+                                    onChanged: (bool) {
+                                      orderController.addCheck(
+                                        item.orderId,
+                                        item.foodId,
+                                        bool == false ? 0 : 1,
+                                      );
+                                    },
+                                    // value: ischecked ?? false,
+                                    // value: item.isChecked == 0 ? false : true,
+                                    value: orderController.isCheckedValues
+                                        .contains(
+                                      item.foodId,
+                                    ),
+                                  );
                                 },
                               ),
                               (controllerOrderModel.orderNote != null &&
@@ -586,36 +620,43 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                          Text('additional_note'.tr,
-                                              style: robotoRegular),
-                                          SizedBox(
-                                              height: Dimensions
-                                                  .PADDING_SIZE_SMALL),
-                                          Container(
-                                            width: 1170,
-                                            padding: EdgeInsets.all(
-                                                Dimensions.PADDING_SIZE_SMALL),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color: Theme.of(context)
-                                                      .disabledColor),
+                                        Text(
+                                          'additional_note'.tr,
+                                          style: robotoRegular,
+                                        ),
+                                        SizedBox(
+                                          height: Dimensions.PADDING_SIZE_SMALL,
+                                        ),
+                                        Container(
+                                          width: 1170,
+                                          padding: EdgeInsets.all(
+                                            Dimensions.PADDING_SIZE_SMALL,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              5,
                                             ),
-                                            child: Text(
-                                              controllerOrderModel.orderNote,
-                                              style: robotoRegular.copyWith(
-                                                  fontSize: Dimensions
-                                                      .FONT_SIZE_SMALL,
-                                                  color: Theme.of(context)
-                                                      .disabledColor),
+                                            border: Border.all(
+                                              width: 1,
+                                              color: Theme.of(context)
+                                                  .disabledColor,
                                             ),
                                           ),
-                                          SizedBox(
-                                              height: Dimensions
-                                                  .PADDING_SIZE_LARGE),
-                                        ])
+                                          child: Text(
+                                            controllerOrderModel.orderNote,
+                                            style: robotoRegular.copyWith(
+                                              fontSize:
+                                                  Dimensions.FONT_SIZE_SMALL,
+                                              color: Theme.of(context)
+                                                  .disabledColor,
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: Dimensions.PADDING_SIZE_LARGE,
+                                        ),
+                                      ],
+                                    )
                                   : SizedBox(),
                             ]),
                       ]),
@@ -755,9 +796,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                       ])
                                     : GetBuilder<OrderController>(
                                         builder: (con) {
-                                          print(con.isLoading);
-                                        return 
-                                        con.isLoading
+                                        return con.isLoading
                                             ? Center(
                                                 child:
                                                     CircularProgressIndicator(),

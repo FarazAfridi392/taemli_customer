@@ -223,6 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         )
                       : orderController.currentOrderList.length > 0
                           ? ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                               itemBuilder: ((context, index) {
                                 return OrderWidget(
