@@ -214,7 +214,7 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<void> updatePaymentStatus(int index, String status) async {
-    _isLoading = true;
+    // _isLoading = true;
     update();
     UpdateStatusBody _updateStatusBody =
         UpdateStatusBody(orderId: _currentOrderList[index].id, status: status);
@@ -225,7 +225,7 @@ class OrderController extends GetxController implements GetxService {
     } else {
       ApiChecker.checkApi(response);
     }
-    _isLoading = false;
+    // _isLoading = false;
     update();
   }
 
