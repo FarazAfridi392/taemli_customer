@@ -1,0 +1,574 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="dcodax.taemli.delivery.app"
+4    android:versionCode="11"
+5    android:versionName="9.2" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:9:5-66
+14-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:9:22-64
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:10:5-79
+15-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:10:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:11:5-81
+16-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+17-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:12:5-77
+17-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:12:22-74
+18    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+18-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:13:5-84
+18-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:13:22-82
+19
+20    <queries>
+20-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:15:5-28:15
+21        <intent>
+21-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:16:9-19:18
+22            <action android:name="android.intent.action.VIEW" />
+22-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:17:13-65
+22-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:17:21-62
+23
+24            <data android:scheme="https" />
+24-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:18:13-44
+24-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:18:19-41
+25        </intent>
+26        <intent>
+26-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:20:9-23:18
+27            <action android:name="android.intent.action.DIAL" />
+27-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:21:13-65
+27-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:21:21-62
+28
+29            <data android:scheme="tel" />
+29-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:18:13-44
+29-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:18:19-41
+30        </intent>
+31        <intent>
+31-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:24:9-27:18
+32            <action android:name="android.intent.action.SEND" />
+32-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:25:13-65
+32-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:25:21-62
+33
+34            <data android:mimeType="*/*" />
+34-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:18:13-44
+35        </intent>
+36        <!-- Needs to be explicitly declared on Android R+ -->
+37        <package android:name="com.google.android.apps.maps" />
+37-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:33:9-64
+37-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:33:18-61
+38    </queries>
+39
+40    <uses-permission android:name="android.permission.WAKE_LOCK" />
+40-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-68
+40-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-65
+41    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+41-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-79
+41-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-76
+42    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+42-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+42-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-78
+43    <uses-permission android:name="android.permission.VIBRATE" />
+43-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-66
+43-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-63
+44    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+44-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-81
+44-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:11:22-78
+45    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+45-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-79
+45-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:12:22-76
+46    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+46-->[:disable_battery_optimization] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/disable_battery_optimization/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-95
+46-->[:disable_battery_optimization] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/disable_battery_optimization/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-92
+47    <uses-permission android:name="oppo.permission.OPPO_COMPONENT_SAFE" />
+47-->[:disable_battery_optimization] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/disable_battery_optimization/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-75
+47-->[:disable_battery_optimization] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/disable_battery_optimization/intermediates/merged_manifest/debug/AndroidManifest.xml:10:22-72
+48
+49    <uses-feature
+49-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:26:5-28:35
+50        android:glEsVersion="0x00020000"
+50-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:27:9-41
+51        android:required="true" />
+51-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:28:9-32
+52
+53    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+53-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:26:5-77
+53-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:26:22-74
+54    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+54-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:29:5-82
+54-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:29:22-79
+55
+56    <permission
+56-->[androidx.core:core:1.10.1] /Users/farazafridi/.gradle/caches/transforms-3/ccc4129a86fd7b0b17b13f1fc77dd8c1/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+57        android:name="dcodax.taemli.delivery.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+57-->[androidx.core:core:1.10.1] /Users/farazafridi/.gradle/caches/transforms-3/ccc4129a86fd7b0b17b13f1fc77dd8c1/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+58        android:protectionLevel="signature" />
+58-->[androidx.core:core:1.10.1] /Users/farazafridi/.gradle/caches/transforms-3/ccc4129a86fd7b0b17b13f1fc77dd8c1/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+59
+60    <uses-permission android:name="dcodax.taemli.delivery.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+60-->[androidx.core:core:1.10.1] /Users/farazafridi/.gradle/caches/transforms-3/ccc4129a86fd7b0b17b13f1fc77dd8c1/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+60-->[androidx.core:core:1.10.1] /Users/farazafridi/.gradle/caches/transforms-3/ccc4129a86fd7b0b17b13f1fc77dd8c1/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+61
+62    <application
+62-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:30:5-85:19
+63        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+63-->[androidx.core:core:1.10.1] /Users/farazafridi/.gradle/caches/transforms-3/ccc4129a86fd7b0b17b13f1fc77dd8c1/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+64        android:debuggable="true"
+65        android:icon="@mipmap/ic_launcher"
+65-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:35:9-43
+66        android:label="Taemli Delivery Man"
+66-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:32:9-44
+67        android:requestLegacyExternalStorage="true"
+67-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:33:9-52
+68        android:usesCleartextTraffic="true" >
+68-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:34:9-44
+69        <meta-data
+69-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:36:9-37:70
+70            android:name="com.google.android.geo.API_KEY"
+70-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:36:20-65
+71            android:value="AIzaSyAQQ8MnfJhPHVtZmsDb2NoAIQnQeuDgvFU" />
+71-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:37:13-68
+72
+73        <activity
+73-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:39:9-75:20
+74            android:name="dcodax.taemli.delivery.app.MainActivity"
+74-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:40:13-41
+75            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+75-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:43:13-163
+76            android:exported="true"
+76-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:45:13-36
+77            android:hardwareAccelerated="true"
+77-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:44:13-47
+78            android:launchMode="singleTop"
+78-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:41:13-43
+79            android:theme="@style/LaunchTheme"
+79-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:42:13-47
+80            android:windowSoftInputMode="adjustResize" >
+80-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:46:13-55
+81
+82            <!--
+83                 Specifies an Android theme to apply to this Activity as soon as
+84                 the Android process has started. This theme is visible to the user
+85                 while the Flutter UI initializes. After that, this theme continues
+86                 to determine the Window background behind the Flutter UI.
+87            -->
+88            <meta-data
+88-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:51:13-54:17
+89                android:name="io.flutter.embedding.android.NormalTheme"
+89-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:52:15-70
+90                android:resource="@style/NormalTheme" />
+90-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:53:15-52
+91            <!--
+92                 Displays an Android View that continues showing the launch screen
+93                 Drawable until Flutter paints its first frame, then this splash
+94                 screen fades out. A splash screen is useful to avoid any visual
+95                 gap between the end of Android's launch screen and the painting of
+96                 Flutter's first frame.
+97            -->
+98            <meta-data
+98-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:60:13-63:17
+99                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+99-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:61:15-79
+100                android:resource="@drawable/launch_background" />
+100-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:62:15-61
+101            <meta-data
+101-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:64:13-66:42
+102                android:name="com.google.firebase.messaging.default_notification_channel_id"
+102-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:65:17-93
+103                android:value="taemli" />
+103-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:66:17-39
+104
+105            <intent-filter>
+105-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:67:13-70:29
+106                <action android:name="android.intent.action.MAIN" />
+106-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:68:17-68
+106-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:68:25-66
+107
+108                <category android:name="android.intent.category.LAUNCHER" />
+108-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:69:17-76
+108-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:69:27-74
+109            </intent-filter>
+110            <intent-filter>
+110-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:71:13-74:29
+111                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+111-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:72:17-69
+111-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:72:25-66
+112
+113                <category android:name="android.intent.category.DEFAULT" />
+113-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:73:17-76
+113-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:73:27-73
+114            </intent-filter>
+115        </activity>
+116        <!--
+117             Don't delete the meta-data below.
+118             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+119        -->
+120        <service
+120-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:78:9-81:40
+121            android:name="dcodax.taemli.delivery.app.BackgroundService"
+121-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:79:13-72
+122            android:enabled="true"
+122-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:80:13-35
+123            android:exported="false" />
+123-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:81:13-37
+124
+125        <meta-data
+125-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:82:9-84:33
+126            android:name="flutterEmbedding"
+126-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:83:13-44
+127            android:value="2" />
+127-->/Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/android/app/src/main/AndroidManifest.xml:84:13-30
+128
+129        <service
+129-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-17:72
+130            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+130-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-107
+131            android:exported="false"
+131-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+132            android:permission="android.permission.BIND_JOB_SERVICE" />
+132-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-69
+133        <service
+133-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:9-24:19
+134            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+134-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-97
+135            android:exported="false" >
+135-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
+136            <intent-filter>
+136-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-23:29
+137                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+137-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:17-78
+137-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:25-75
+138            </intent-filter>
+139        </service>
+140
+141        <receiver
+141-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:26:9-33:20
+142            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+142-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-98
+143            android:exported="true"
+143-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-36
+144            android:permission="com.google.android.c2dm.permission.SEND" >
+144-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-73
+145            <intent-filter>
+145-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-32:29
+146                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+146-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:17-81
+146-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:25-78
+147            </intent-filter>
+148        </receiver>
+149
+150        <service
+150-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:35:9-39:19
+151            android:name="com.google.firebase.components.ComponentDiscoveryService"
+151-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:35:18-89
+152            android:directBootAware="true"
+152-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
+153            android:exported="false" >
+153-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:55:13-37
+154            <meta-data
+154-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-38:85
+155                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+155-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:37:17-128
+156                android:value="com.google.firebase.components.ComponentRegistrar" />
+156-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:17-82
+157            <meta-data
+157-->[:firebase_core] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+158                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+158-->[:firebase_core] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+159                android:value="com.google.firebase.components.ComponentRegistrar" />
+159-->[:firebase_core] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+160            <meta-data
+160-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:56:13-58:85
+161                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+161-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:57:17-119
+162                android:value="com.google.firebase.components.ComponentRegistrar" />
+162-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:58:17-82
+163            <meta-data
+163-->[com.google.firebase:firebase-datatransport:18.1.5] /Users/farazafridi/.gradle/caches/transforms-3/a522ea8980ad4adeee21e37b4cc2955d/transformed/jetified-firebase-datatransport-18.1.5/AndroidManifest.xml:28:13-30:85
+164                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+164-->[com.google.firebase:firebase-datatransport:18.1.5] /Users/farazafridi/.gradle/caches/transforms-3/a522ea8980ad4adeee21e37b4cc2955d/transformed/jetified-firebase-datatransport-18.1.5/AndroidManifest.xml:29:17-115
+165                android:value="com.google.firebase.components.ComponentRegistrar" />
+165-->[com.google.firebase:firebase-datatransport:18.1.5] /Users/farazafridi/.gradle/caches/transforms-3/a522ea8980ad4adeee21e37b4cc2955d/transformed/jetified-firebase-datatransport-18.1.5/AndroidManifest.xml:30:17-82
+166            <meta-data
+166-->[com.google.firebase:firebase-installations:17.0.1] /Users/farazafridi/.gradle/caches/transforms-3/d810b8a98d173d970897fe0e6dd58cd0/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:18:13-20:85
+167                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+167-->[com.google.firebase:firebase-installations:17.0.1] /Users/farazafridi/.gradle/caches/transforms-3/d810b8a98d173d970897fe0e6dd58cd0/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:19:17-127
+168                android:value="com.google.firebase.components.ComponentRegistrar" />
+168-->[com.google.firebase:firebase-installations:17.0.1] /Users/farazafridi/.gradle/caches/transforms-3/d810b8a98d173d970897fe0e6dd58cd0/transformed/jetified-firebase-installations-17.0.1/AndroidManifest.xml:20:17-82
+169        </service>
+170
+171        <provider
+171-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:41:9-45:38
+172            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+172-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:42:13-102
+173            android:authorities="dcodax.taemli.delivery.app.flutterfirebasemessaginginitprovider"
+173-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:13-88
+174            android:exported="false"
+174-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-37
+175            android:initOrder="99" />
+175-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-35
+176
+177        <service
+177-->[:geolocator_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:56
+178            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+178-->[:geolocator_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
+179            android:enabled="true"
+179-->[:geolocator_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-35
+180            android:exported="false"
+180-->[:geolocator_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-37
+181            android:foregroundServiceType="location" />
+181-->[:geolocator_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
+182
+183        <provider
+183-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
+184            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+184-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
+185            android:authorities="dcodax.taemli.delivery.app.flutter.image_provider"
+185-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-74
+186            android:exported="false"
+186-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+187            android:grantUriPermissions="true" >
+187-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
+188            <meta-data
+188-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:75
+189                android:name="android.support.FILE_PROVIDER_PATHS"
+189-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
+190                android:resource="@xml/flutter_image_picker_file_paths" />
+190-->[:image_picker_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-72
+191        </provider>
+192
+193        <receiver
+193-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-17:40
+194            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+194-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-97
+195            android:exported="false" />
+195-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-37
+196        <receiver
+196-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:18:9-27:20
+197            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+197-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-101
+198            android:exported="false" >
+198-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-37
+199            <intent-filter>
+199-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-26:29
+200                <action android:name="android.intent.action.BOOT_COMPLETED" />
+200-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:17-79
+200-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:22:25-76
+201                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+201-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:17-84
+201-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:23:25-81
+202                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+202-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-82
+202-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-79
+203                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+203-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-82
+203-->[:flutter_local_notifications] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-79
+204            </intent-filter>
+205        </receiver>
+206
+207        <activity
+207-->[:url_launcher_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+208            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+208-->[:url_launcher_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+209            android:exported="false"
+209-->[:url_launcher_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+210            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+210-->[:url_launcher_android] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+211
+212        <service
+212-->[:location] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-17:56
+213            android:name="com.lyokone.location.FlutterLocationService"
+213-->[:location] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-71
+214            android:enabled="true"
+214-->[:location] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-35
+215            android:exported="false"
+215-->[:location] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+216            android:foregroundServiceType="location" /> <!-- Needs to be explicitly declared on P+ -->
+216-->[:location] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/location/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-53
+217        <uses-library
+217-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:39:9-41:40
+218            android:name="org.apache.http.legacy"
+218-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:40:13-50
+219            android:required="false" />
+219-->[com.google.android.gms:play-services-maps:18.1.0] /Users/farazafridi/.gradle/caches/transforms-3/258e40af8d2ad89e529d1a4609d6d731/transformed/jetified-play-services-maps-18.1.0/AndroidManifest.xml:41:13-37
+220
+221        <receiver
+221-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:32:9-39:20
+222            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+222-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:33:13-78
+223            android:exported="true"
+223-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:34:13-36
+224            android:permission="com.google.android.c2dm.permission.SEND" >
+224-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:35:13-73
+225            <intent-filter>
+225-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-32:29
+226                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+226-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:17-81
+226-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:25-78
+227            </intent-filter>
+228        </receiver>
+229        <!--
+230             FirebaseMessagingService performs security checks at runtime,
+231             but set to not exported to explicitly avoid allowing another app to call it.
+232        -->
+233        <service
+233-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:45:9-52:19
+234            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+234-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:46:13-82
+235            android:directBootAware="true"
+235-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:47:13-43
+236            android:exported="false" >
+236-->[com.google.firebase:firebase-messaging:23.0.6] /Users/farazafridi/.gradle/caches/transforms-3/6d6403bfdea8e56f9bf34e25e5ede5c5/transformed/jetified-firebase-messaging-23.0.6/AndroidManifest.xml:48:13-37
+237            <intent-filter android:priority="-500" >
+237-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-23:29
+238                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+238-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:17-78
+238-->[:firebase_messaging] /Applications/development/flutter_projects/Taemli/Taemli-Delivery Man/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:25-75
+239            </intent-filter>
+240        </service>
+241
+242        <activity
+242-->[com.google.android.gms:play-services-base:18.0.1] /Users/farazafridi/.gradle/caches/transforms-3/62b77d2c48601386aed9f694374e408e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+243            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+243-->[com.google.android.gms:play-services-base:18.0.1] /Users/farazafridi/.gradle/caches/transforms-3/62b77d2c48601386aed9f694374e408e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+244            android:exported="false"
+244-->[com.google.android.gms:play-services-base:18.0.1] /Users/farazafridi/.gradle/caches/transforms-3/62b77d2c48601386aed9f694374e408e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+245            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+245-->[com.google.android.gms:play-services-base:18.0.1] /Users/farazafridi/.gradle/caches/transforms-3/62b77d2c48601386aed9f694374e408e/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+246
+247        <provider
+247-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:26:9-31:39
+248            android:name="com.google.firebase.provider.FirebaseInitProvider"
+248-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:27:13-77
+249            android:authorities="dcodax.taemli.delivery.app.firebaseinitprovider"
+249-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:28:13-72
+250            android:directBootAware="true"
+250-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:29:13-43
+251            android:exported="false"
+251-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:30:13-37
+252            android:initOrder="100" />
+252-->[com.google.firebase:firebase-common:20.1.1] /Users/farazafridi/.gradle/caches/transforms-3/825f1cbe0808a4b1edc421a13f711e50/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:31:13-36
+253
+254        <meta-data
+254-->[com.google.android.gms:play-services-basement:18.0.0] /Users/farazafridi/.gradle/caches/transforms-3/d72dfaa48bd8e642394f224dc1bb729d/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+255            android:name="com.google.android.gms.version"
+255-->[com.google.android.gms:play-services-basement:18.0.0] /Users/farazafridi/.gradle/caches/transforms-3/d72dfaa48bd8e642394f224dc1bb729d/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+256            android:value="@integer/google_play_services_version" />
+256-->[com.google.android.gms:play-services-basement:18.0.0] /Users/farazafridi/.gradle/caches/transforms-3/d72dfaa48bd8e642394f224dc1bb729d/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+257
+258        <provider
+258-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+259            android:name="androidx.startup.InitializationProvider"
+259-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+260            android:authorities="dcodax.taemli.delivery.app.androidx-startup"
+260-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+261            android:exported="false" >
+261-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+262            <meta-data
+262-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+263                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+263-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+264                android:value="androidx.startup" />
+264-->[androidx.emoji2:emoji2:1.0.0] /Users/farazafridi/.gradle/caches/transforms-3/0cc2cbcd441d9195f7f9a1fa6a433116/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+265            <meta-data
+265-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/farazafridi/.gradle/caches/transforms-3/fe3fd8dea61344f309f63a10ed08e7cf/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+266                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+266-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/farazafridi/.gradle/caches/transforms-3/fe3fd8dea61344f309f63a10ed08e7cf/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+267                android:value="androidx.startup" />
+267-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/farazafridi/.gradle/caches/transforms-3/fe3fd8dea61344f309f63a10ed08e7cf/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+268            <meta-data
+268-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+269                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+269-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+270                android:value="androidx.startup" />
+270-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+271        </provider>
+272
+273        <uses-library
+273-->[androidx.window:window:1.0.0-beta04] /Users/farazafridi/.gradle/caches/transforms-3/b2f2be521313656ff17c2489025f9730/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+274            android:name="androidx.window.extensions"
+274-->[androidx.window:window:1.0.0-beta04] /Users/farazafridi/.gradle/caches/transforms-3/b2f2be521313656ff17c2489025f9730/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+275            android:required="false" />
+275-->[androidx.window:window:1.0.0-beta04] /Users/farazafridi/.gradle/caches/transforms-3/b2f2be521313656ff17c2489025f9730/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+276        <uses-library
+276-->[androidx.window:window:1.0.0-beta04] /Users/farazafridi/.gradle/caches/transforms-3/b2f2be521313656ff17c2489025f9730/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+277            android:name="androidx.window.sidecar"
+277-->[androidx.window:window:1.0.0-beta04] /Users/farazafridi/.gradle/caches/transforms-3/b2f2be521313656ff17c2489025f9730/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+278            android:required="false" />
+278-->[androidx.window:window:1.0.0-beta04] /Users/farazafridi/.gradle/caches/transforms-3/b2f2be521313656ff17c2489025f9730/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+279
+280        <receiver
+280-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+281            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+281-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+282            android:directBootAware="false"
+282-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+283            android:enabled="true"
+283-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+284            android:exported="true"
+284-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+285            android:permission="android.permission.DUMP" >
+285-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+286            <intent-filter>
+286-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+287                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+287-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+287-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+288            </intent-filter>
+289            <intent-filter>
+289-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+290                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+290-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+290-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+291            </intent-filter>
+292            <intent-filter>
+292-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+293                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+293-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+293-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+294            </intent-filter>
+295            <intent-filter>
+295-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+296                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+296-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+296-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/farazafridi/.gradle/caches/transforms-3/580187aea785e386a39c84342e78495d/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+297            </intent-filter>
+298        </receiver>
+299
+300        <service
+300-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/44fbb15e97bc439ea842bb6129603197/transformed/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:29:9-35:19
+301            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+301-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/44fbb15e97bc439ea842bb6129603197/transformed/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:30:13-103
+302            android:exported="false" >
+302-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/44fbb15e97bc439ea842bb6129603197/transformed/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:31:13-37
+303            <meta-data
+303-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/44fbb15e97bc439ea842bb6129603197/transformed/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:32:13-34:39
+304                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+304-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/44fbb15e97bc439ea842bb6129603197/transformed/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:33:17-94
+305                android:value="cct" />
+305-->[com.google.android.datatransport:transport-backend-cct:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/44fbb15e97bc439ea842bb6129603197/transformed/jetified-transport-backend-cct-3.1.6/AndroidManifest.xml:34:17-36
+306        </service>
+307        <service
+307-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:26:9-30:19
+308            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+308-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:27:13-117
+309            android:exported="false"
+309-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:28:13-37
+310            android:permission="android.permission.BIND_JOB_SERVICE" >
+310-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:29:13-69
+311        </service>
+312
+313        <receiver
+313-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:32:9-34:40
+314            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+314-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:33:13-132
+315            android:exported="false" />
+315-->[com.google.android.datatransport:transport-runtime:3.1.6] /Users/farazafridi/.gradle/caches/transforms-3/fbb4ceb5334021f5ecda6ba3e0236623/transformed/jetified-transport-runtime-3.1.6/AndroidManifest.xml:34:13-37
+316    </application>
+317
+318</manifest>

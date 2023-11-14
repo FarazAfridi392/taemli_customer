@@ -94,9 +94,11 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
 
     if (_phone.isEmpty) {
       showCustomSnackBar('enter_phone_number'.tr);
-    }else if (!_isValid) {
-      showCustomSnackBar('invalid_phone_number'.tr);
-    }else {
+    }
+    // else if (!_isValid) {
+    //   showCustomSnackBar('invalid_phone_number'.tr);
+    // }
+    else {
       Get.find<AuthController>().forgetPassword(_numberWithCountryCode).then((status) async {
         if (status.isSuccess) {
           Get.toNamed(RouteHelper.getVerificationRoute(_numberWithCountryCode));

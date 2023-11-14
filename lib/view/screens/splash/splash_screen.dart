@@ -11,6 +11,7 @@ import 'package:efood_multivendor_driver/util/images.dart';
 import 'package:efood_multivendor_driver/util/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:upgrader/upgrader.dart';
 
 class SplashScreen extends StatefulWidget {
   final NotificationBody body;

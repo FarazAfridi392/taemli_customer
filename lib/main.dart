@@ -15,6 +15,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:upgrader/upgrader.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'controller/auth_controller.dart';
 import 'helper/get_di.dart' as di;
@@ -28,6 +29,7 @@ Future<void> main() async {
   }
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
+  await Upgrader.clearSavedSettings();
   await Firebase.initializeApp();
   Map<String, Map<String, String>> _languages = await di.init();
 
@@ -44,7 +46,12 @@ Future<void> main() async {
     }
   } catch (e) {}
 
-  runApp(MyApp(languages: _languages, body: _body));
+  runApp(
+    MyApp(
+      languages: _languages,
+      body: _body,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

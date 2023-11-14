@@ -1,61 +1,61 @@
-import 'dart:async'; 
-import 'package:circular_countdown_timer/circular_countdown_timer.dart'; 
-import 'package:efood_multivendor_driver/view/base/input_dialog.dart'; 
-import 'package:flutter/material.dart'; 
-import 'package:get/get.dart'; 
-import 'package:efood_multivendor_driver/controller/auth_controller.dart'; 
-import 'package:efood_multivendor_driver/controller/order_controller.dart'; 
-import 'package:efood_multivendor_driver/controller/splash_controller.dart'; 
-import 'package:efood_multivendor_driver/data/model/body/notification_body.dart'; 
-import 'package:efood_multivendor_driver/data/model/response/conversation_model.dart'; 
-import 'package:efood_multivendor_driver/data/model/response/order_details_model.dart'; 
-import 'package:efood_multivendor_driver/data/model/response/order_model.dart'; 
-import 'package:efood_multivendor_driver/helper/date_converter.dart'; 
-import 'package:efood_multivendor_driver/helper/route_helper.dart'; 
-import 'package:efood_multivendor_driver/util/dimensions.dart'; 
-import 'package:efood_multivendor_driver/util/images.dart'; 
-import 'package:efood_multivendor_driver/util/styles.dart'; 
-import 'package:efood_multivendor_driver/view/base/confirmation_dialog.dart'; 
-import 'package:efood_multivendor_driver/view/base/custom_app_bar.dart'; 
-import 'package:efood_multivendor_driver/view/base/custom_button.dart'; 
-import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart'; 
-import 'package:efood_multivendor_driver/view/screens/order/widget/info_card.dart'; 
-import 'package:efood_multivendor_driver/view/screens/order/widget/order_product_widget.dart'; 
-import 'package:efood_multivendor_driver/view/screens/order/widget/verify_delivery_sheet.dart'; 
+import 'dart:async';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:efood_multivendor_driver/view/base/input_dialog.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:efood_multivendor_driver/controller/auth_controller.dart';
+import 'package:efood_multivendor_driver/controller/order_controller.dart';
+import 'package:efood_multivendor_driver/controller/splash_controller.dart';
+import 'package:efood_multivendor_driver/data/model/body/notification_body.dart';
+import 'package:efood_multivendor_driver/data/model/response/conversation_model.dart';
+import 'package:efood_multivendor_driver/data/model/response/order_details_model.dart';
+import 'package:efood_multivendor_driver/data/model/response/order_model.dart';
+import 'package:efood_multivendor_driver/helper/date_converter.dart';
+import 'package:efood_multivendor_driver/helper/route_helper.dart';
+import 'package:efood_multivendor_driver/util/dimensions.dart';
+import 'package:efood_multivendor_driver/util/images.dart';
+import 'package:efood_multivendor_driver/util/styles.dart';
+import 'package:efood_multivendor_driver/view/base/confirmation_dialog.dart';
+import 'package:efood_multivendor_driver/view/base/custom_app_bar.dart';
+import 'package:efood_multivendor_driver/view/base/custom_button.dart';
+import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
+import 'package:efood_multivendor_driver/view/screens/order/widget/info_card.dart';
+import 'package:efood_multivendor_driver/view/screens/order/widget/order_product_widget.dart';
+import 'package:efood_multivendor_driver/view/screens/order/widget/verify_delivery_sheet.dart';
 
-class OrderDetailsScreen extends StatefulWidget { 
-  final int orderId; 
-  final bool isRunningOrder; 
-  final int orderIndex; 
-  OrderDetailsScreen( 
-      {@required this.orderId, 
-      @required this.isRunningOrder, 
-      @required this.orderIndex}); 
+class OrderDetailsScreen extends StatefulWidget {
+  final int orderId;
+  final bool isRunningOrder;
+  final int orderIndex;
+  OrderDetailsScreen(
+      {@required this.orderId,
+      @required this.isRunningOrder,
+      @required this.orderIndex});
 
-  @override 
-  State<OrderDetailsScreen> createState() => _OrderDetailsScreenState(); 
+  @override
+  State<OrderDetailsScreen> createState() => _OrderDetailsScreenState();
 }
 
-class _OrderDetailsScreenState extends State<OrderDetailsScreen> { 
-  int timeRemainingInSeconds; 
-  int totalDuration; 
-  int initialDuration; 
+class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
+  int timeRemainingInSeconds;
+  int totalDuration;
+  int initialDuration;
 
-  int deliveryTimeRemainingInSeconds; 
-  int deliveryTotalDuration; 
-  int deliveryInitialDuration; 
-  Timer _timer; 
+  int deliveryTimeRemainingInSeconds;
+  int deliveryTotalDuration;
+  int deliveryInitialDuration;
+  Timer _timer;
 
-  void _startApiCalling() { 
-    _timer = Timer.periodic( 
-      Duration(seconds: 10), 
-      (timer) { 
-        Get.find<OrderController>().getOrderWithId(widget.orderId); 
-        Get.find<OrderController>().getOrderDetails(widget.orderId); 
-      }, 
-    );
-    // Get.find<OrderController>().getOrderWithId(widget.orderId); 
-    // Get.find<OrderController>().getOrderDetails(widget.orderId);
+  void _startApiCalling() {
+    // _timer = Timer.periodic(
+    //   Duration(seconds: 10),
+    //   (timer) {
+    //     Get.find<OrderController>().getOrderWithId(widget.orderId);
+    //     Get.find<OrderController>().getOrderDetails(widget.orderId);
+    //   },
+    // );
+    Get.find<OrderController>().getOrderWithId(widget.orderId);
+    Get.find<OrderController>().getOrderDetails(widget.orderId);
   }
 
   Future<void> _loadData() async {
@@ -68,7 +68,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
     super.initState();
 
     _loadData();
-    _startApiCalling();
+    // _startApiCalling();
   }
 
   @override
@@ -139,8 +139,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ? currentTime.difference(startTime).inSeconds
                       : 0;
                 }
-
-
 
                 if (controllerOrderModel.processingTime != null) {
                   if (timeRemainingInSeconds <= totalDuration) {
@@ -741,16 +739,18 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                             widget.orderIndex,
                                                             'canceled',
                                                             back: true)
-                                                        .then((success) {
-                                                      if (success) {
-                                                        Get.find<
-                                                                AuthController>()
-                                                            .getProfile();
-                                                        Get.find<
-                                                                OrderController>()
-                                                            .getCurrentOrders();
-                                                      }
-                                                    });
+                                                        .then(
+                                                      (success) {
+                                                        if (success) {
+                                                          Get.find<
+                                                                  AuthController>()
+                                                              .getProfile();
+                                                          Get.find<
+                                                                  OrderController>()
+                                                              .getCurrentOrders();
+                                                        }
+                                                      },
+                                                    );
                                                   },
                                                 ),
                                                 barrierDismissible: false),
@@ -944,6 +944,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                                       .profileModel
                                                                       .active ==
                                                                   1) {
+                                                                Get.back();
                                                                 Get.find<
                                                                         OrderController>()
                                                                     .updateOrderStatus(

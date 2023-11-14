@@ -20,6 +20,7 @@ import 'package:efood_multivendor_driver/view/screens/splash/splash_screen.dart'
 import 'package:efood_multivendor_driver/view/screens/update/update_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:upgrader/upgrader.dart';
 
 class RouteHelper {
   static const String initial = '/';
@@ -89,15 +90,35 @@ class RouteHelper {
   static String getDeliverymanRegistrationRoute() => '$deliveryManRegistration';
 
   static List<GetPage> routes = [
-    GetPage(name: initial, page: () => DashboardScreen(pageIndex: 0)),
+    GetPage(
+      name: initial,
+      page: () => DashboardScreen(
+        pageIndex: 0,
+      ),
+      // page: () => UpgradeAlert(
+      //   upgrader: Upgrader(
+      //     canDismissDialog: false,
+      //     showLater: false,
+      //     showIgnore: false,
+      //   ),
+      //   child: DashboardScreen(
+      //     pageIndex: 0,
+      //   ),
+      // ),
+    ),
     GetPage(
         name: splash,
         page: () {
           NotificationBody _data;
           if (Get.parameters['data'] != 'null') {
-            List<int> _decode =
-                base64Decode(Get.parameters['data'].replaceAll(' ', '+'));
-            _data = NotificationBody.fromJson(jsonDecode(utf8.decode(_decode)));
+            List<int> _decode = base64Decode(
+              Get.parameters['data'].replaceAll(' ', '+'),
+            );
+            _data = NotificationBody.fromJson(
+              jsonDecode(
+                utf8.decode(_decode),
+              ),
+            );
           }
           return SplashScreen(body: _data);
         }),
@@ -130,6 +151,7 @@ class RouteHelper {
         name: orderDetails,
         page: () {
           OrderDetailsScreen _orderDetails = Get.arguments;
+
           return _orderDetails != null
               ? _orderDetails
               : OrderDetailsScreen(

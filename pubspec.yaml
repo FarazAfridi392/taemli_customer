@@ -41,6 +41,7 @@ dependencies:
   flutter_widget_from_html_core: ^0.8.5+3
   fwfh_text_style: ^2.22.8+1
   circular_countdown_timer: ^0.2.2
+  upgrader: ^5.1.0
 
 dev_dependencies:
   flutter_test:

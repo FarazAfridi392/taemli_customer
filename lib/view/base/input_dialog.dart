@@ -6,12 +6,6 @@ import 'package:efood_multivendor_driver/view/base/custom_snackbar.dart';
 import 'package:efood_multivendor_driver/view/base/custom_text_field.dart';
 import 'package:efood_multivendor_driver/view/base/time_option_button.dart';
 
-
-
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,7 +40,6 @@ class _InputDialogState extends State<InputDialog> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Dialog(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(Dimensions.RADIUS_SMALL)),
@@ -86,8 +79,6 @@ class _InputDialogState extends State<InputDialog> {
                 Center(
                   child: Column(
                     children: [
-                      
-                      
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -180,13 +171,12 @@ class _InputDialogState extends State<InputDialog> {
                     isEnabled: true,
                     inputType: TextInputType.number,
                     inputAction: TextInputAction.done,
-                    onChanged: (string){
-                      if(string.isNotEmpty){
-                        _selectTime(int.parse(string)); 
+                    onChanged: (string) {
+                      if (string.isNotEmpty) {
+                        _selectTime(int.parse(string));
+                      } else {
+                        _selectTime(0);
                       }
-                      else{
-                         _selectTime(0);
-                      }                
                     },
                   ),
                 ),
@@ -199,25 +189,26 @@ class _InputDialogState extends State<InputDialog> {
                     ),
                     textAlign: TextAlign.center),
                 SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
-                GetBuilder<OrderController>(builder: (orderController) {
-                  return 
-                      Row(children: [
-                          Expanded(
-                              child: CustomButton(
-                            buttonText: 'submit'.tr,
-                            height: 40,
-                            onPressed: () {
-                              if (selectedTime == 0) {
-                                showCustomSnackBar(
-                                    'Enter Delivery Time in Minutes');
-                              } else {
-                                widget.onPressed(selectedTime.toString());
-                              }
-                            },
-                          )),
-                          SizedBox(width: Dimensions.PADDING_SIZE_LARGE),
-                          Expanded(
-                              child: TextButton(
+                GetBuilder<OrderController>(
+                  builder: (orderController) {
+                    return Row(
+                      children: [
+                        Expanded(
+                            child: CustomButton(
+                          buttonText: 'submit'.tr,
+                          height: 40,
+                          onPressed: () {
+                            if (selectedTime == 0) {
+                              showCustomSnackBar(
+                                  'Enter Delivery Time in Minutes');
+                            } else {
+                              widget.onPressed(selectedTime.toString());
+                            }
+                          },
+                        )),
+                        SizedBox(width: Dimensions.PADDING_SIZE_LARGE),
+                        Expanded(
+                          child: TextButton(
                             onPressed: () => widget.onCancelled(),
                             style: TextButton.styleFrom(
                               backgroundColor: Theme.of(context)
@@ -238,9 +229,12 @@ class _InputDialogState extends State<InputDialog> {
                                       .bodyText1
                                       .color),
                             ),
-                          )),
-                        ]);
-                }),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ]),
             ),
           )),
@@ -257,5 +251,3 @@ class _InputDialogState extends State<InputDialog> {
     return text.split(' ').reversed.join(' ');
   }
 }
-
-
