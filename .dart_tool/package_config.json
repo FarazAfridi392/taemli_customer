@@ -626,6 +626,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "pusher_channels_flutter",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/pusher_channels_flutter-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sanitize_html",
       "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/sanitize_html-2.1.0",
       "packageUri": "lib/",
@@ -860,7 +866,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2023-11-10T09:28:46.975452Z",
+  "generated": "2023-11-20T04:22:55.721008Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

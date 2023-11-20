@@ -6,7 +6,6 @@ import 'package:efood_multivendor_driver/controller/order_controller.dart';
 import 'package:efood_multivendor_driver/data/model/body/notification_body.dart';
 import 'package:efood_multivendor_driver/helper/route_helper.dart';
 import 'package:efood_multivendor_driver/helper/user_type.dart';
-import 'package:efood_multivendor_driver/view/screens/dashboard/widget/order_status_dialog.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:efood_multivendor_driver/util/app_constants.dart';
@@ -92,9 +91,7 @@ class NotificationHelper {
           message.data['order_id'] != null &&
           message.data['order_id'].isNotEmpty &&
           message.data['status'] != null) {
-        Get.find<OrderController>().getCurrentOrders();
-        Get.find<OrderController>().getLatestOrders();
-        Get.dialog(OrderStatusDialog(orderStatus: message.data['status'], orderid: message.data['order_id'],));
+      
       } else {
         String _type = message.data['type'];
 

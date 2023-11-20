@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:efood_multivendor_driver/controller/auth_controller.dart';
 import 'package:efood_multivendor_driver/controller/order_controller.dart';
+import 'package:efood_multivendor_driver/controller/socket_controller.dart';
 import 'package:efood_multivendor_driver/helper/notification_helper.dart';
 import 'package:efood_multivendor_driver/helper/route_helper.dart';
 import 'package:efood_multivendor_driver/util/dimensions.dart';
@@ -11,6 +12,7 @@ import 'package:efood_multivendor_driver/view/screens/home/home_screen.dart';
 import 'package:efood_multivendor_driver/view/screens/profile/profile_screen.dart';
 import 'package:efood_multivendor_driver/view/screens/request/order_request_screen.dart';
 import 'package:efood_multivendor_driver/view/screens/order/order_screen.dart';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,6 +36,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
   //Timer _timer;
   //int _orderCount;
 
+  Future<void> connectSocket() async {
+    print('hello');
+     Get.put(SocketController());
+     await Get.find<SocketController>().connectSocket(() => _navigateRequestPage());
+  }
+
+
   @override
   void initState() {
     super.initState();
@@ -48,6 +57,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       OrderScreen(),
       ProfileScreen(),
     ];
+
+    connectSocket();
 
 
     print('dashboard call');
@@ -66,14 +77,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       //Get.find<OrderController>().getAllOrders();
       if(_type == 'new_order') {
         //_orderCount = _orderCount + 1;
-        Get.find<OrderController>().getCurrentOrders();
-        Get.find<OrderController>().getLatestOrders();
-        Get.dialog(NewRequestDialog(isRequest: true, onTap: () => _navigateRequestPage()));
-      }else if(_type == 'assign' && _orderID != null && _orderID.isNotEmpty) {
-        Get.find<OrderController>().getCurrentOrders();
-        Get.find<OrderController>().getLatestOrders();
-        Get.dialog(NewRequestDialog(isRequest: false, onTap: () => _setPage(0)));
-      }else if(_type == 'block') {
+        // Get.find<OrderController>().getCurrentOrders();
+        // Get.find<OrderController>().getLatestOrders();
+        // Get.dialog(NewRequestDialog(isRequest: true, onTap: () => _navigateRequestPage()));
+      }
+      else if(_type == 'assign' && _orderID != null && _orderID.isNotEmpty) {
+        // Get.find<OrderController>().getCurrentOrders();
+        // Get.find<OrderController>().getLatestOrders();
+        // // Get.dialog(NewRequestDialog(isRequest: false, onTap: () => _setPage(0)));
+      }
+      else if(_type == 'block') {
         Get.find<AuthController>().clearSharedData();
         Get.find<AuthController>().stopLocationRecord();
         Get.offAllNamed(RouteHelper.getSignInRoute());

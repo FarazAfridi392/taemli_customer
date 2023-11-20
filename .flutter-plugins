@@ -43,6 +43,7 @@ path_provider_foundation=/Applications/development/flutter_versions/flutter/.pub
 path_provider_linux=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.2.0/
 path_provider_windows=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.2.0/
 phone_number=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/phone_number-0.12.0+2/
+pusher_channels_flutter=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/pusher_channels_flutter-2.2.0/
 shared_preferences=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-2.2.0/
 shared_preferences_android=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_android-2.2.0/
 shared_preferences_foundation=/Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_foundation-2.3.3/
