@@ -59,7 +59,9 @@ class ConfirmationDialog extends StatelessWidget {
           ),
           SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
           GetBuilder<OrderController>(builder: (orderController) {
-            return Row(children: [
+            return orderController.isLoading
+                ? CircularProgressIndicator()
+                : Row(children: [
                     hasCancel
                         ? Expanded(
                             child: Padding(
@@ -109,7 +111,6 @@ class ConfirmationDialog extends StatelessWidget {
                       height: 40,
                     )),
                   ]);
-                
           }),
         ]),
       ),

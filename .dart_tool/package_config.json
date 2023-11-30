@@ -26,6 +26,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "background_fetch",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/background_fetch-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
       "packageUri": "lib/",
@@ -866,7 +872,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2023-11-20T04:22:55.721008Z",
+  "generated": "2023-11-30T05:07:49.748141Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

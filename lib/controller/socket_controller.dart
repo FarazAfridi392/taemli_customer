@@ -43,15 +43,15 @@ class SocketController extends GetxController implements GetxService {
               profileModel.zoneId == valueMap['zone_id'] &&
               profileModel.active == 1 &&
               valueMap['delivery_man_id'] == null &&
-               valueMap['order_type'] == 'delivery') {
+              valueMap['order_type'] == 'delivery') {
             Get.find<OrderController>().getCurrentOrders();
             Get.find<OrderController>().getLatestOrders();
 
             Get.dialog(NewRequestDialog(isRequest: true, onTap: function));
-          } else if (profileModel.id ==
-              valueMap['delivery_man_id']) {
+          } else if (profileModel.id == valueMap['delivery_man_id']) {
             Get.find<OrderController>().getCurrentOrders();
             if (Get.find<OrderController>().orderModel.id == valueMap['id']) {
+              // Get.find<OrderController>().isLoading = true;
               Get.find<OrderController>().getOrderDetails(valueMap['id']);
               Get.find<OrderController>().getOrderWithId(valueMap['id']);
             }
@@ -59,6 +59,7 @@ class SocketController extends GetxController implements GetxService {
             // print(valueMap['restaurant_id']);
           }
         }),
+        
         // onSubscriptionError: onSubscriptionError,
         // onDecryptionFailure: onDecryptionFailure,
         // onMemberAdded: onMemberAdded,

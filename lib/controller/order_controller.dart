@@ -124,6 +124,7 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<void> getCurrentOrders() async {
+    _isLoading = false;
     Response response = await orderRepo.getCurrentOrders();
     if (response.statusCode == 200) {
       _currentOrderList = [];
@@ -136,6 +137,7 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<void> getOrderWithId(int orderId) async {
+    _isLoading = false;
     Response response = await orderRepo.getOrderWithId(orderId);
     if (response.statusCode == 200) {
       _orderModel = OrderModel.fromJson(response.body);
@@ -215,7 +217,7 @@ class OrderController extends GetxController implements GetxService {
 
   Future<void> updatePaymentStatus(int index, String status) async {
     // _isLoading = true;
-    update();
+    // update();
     UpdateStatusBody _updateStatusBody =
         UpdateStatusBody(orderId: _currentOrderList[index].id, status: status);
     Response response = await orderRepo.updatePaymentStatus(_updateStatusBody);
@@ -230,6 +232,7 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Future<void> getOrderDetails(int orderID) async {
+    _isLoading = false;
     _orderDetailsModel = null;
     Response response = await orderRepo.getOrderDetails(orderID);
     if (response.statusCode == 200) {
