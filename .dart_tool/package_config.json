@@ -129,9 +129,9 @@
     },
     {
       "name": "dbus",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/dbus-0.7.8",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/dbus-0.7.10",
       "packageUri": "lib/",
-      "languageVersion": "2.15"
+      "languageVersion": "2.17"
     },
     {
       "name": "device_info_plus",
@@ -147,9 +147,9 @@
     },
     {
       "name": "disable_battery_optimization",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/disable_battery_optimization-1.1.0+1",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/disable_battery_optimization-1.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "fake_async",
@@ -195,7 +195,7 @@
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.20.0",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.24.0",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -213,7 +213,7 @@
     },
     {
       "name": "firebase_messaging",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-12.0.1",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-12.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -237,13 +237,13 @@
     },
     {
       "name": "flutter_local_notifications",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-9.5.3+1",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-9.9.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "flutter_local_notifications_linux",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications_linux-0.4.2",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications_linux-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -309,7 +309,7 @@
     },
     {
       "name": "geocoding_ios",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding_ios-2.1.0",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding_ios-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -843,7 +843,7 @@
     },
     {
       "name": "vibration_web",
-      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/vibration_web-1.6.5",
+      "rootUri": "file:///Applications/development/flutter_versions/flutter/.pub-cache/hosted/pub.dartlang.org/vibration_web-1.6.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -872,7 +872,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2023-11-30T05:07:49.748141Z",
+  "generated": "2023-12-26T09:18:24.389043Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

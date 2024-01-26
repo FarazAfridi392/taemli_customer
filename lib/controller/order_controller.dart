@@ -249,12 +249,14 @@ class OrderController extends GetxController implements GetxService {
   Future<bool> acceptOrder(
     int orderID,
     int index,
+    String arrivalTime,
     OrderModel orderModel,
   ) async {
     _isLoading = true;
     update();
     Response response = await orderRepo.acceptOrder(
       orderID,
+      arrivalTime
     );
     Get.back();
     bool _isSuccess;

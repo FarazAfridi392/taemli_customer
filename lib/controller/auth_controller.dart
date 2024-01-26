@@ -199,11 +199,11 @@ class AuthController extends GetxController implements GetxService {
     return _isSuccess;
   }
 
-  void startLocationRecord() {
+  void startLocationRecord() async {
     _location.enableBackgroundMode(enable: true);
     _timer?.cancel();
-    _timer = Timer.periodic(Duration(seconds: 10), (timer) {
-      recordLocation();
+    _timer = Timer.periodic(Duration(seconds: 10), (timer) async {
+      await recordLocation();
     });
   }
 
@@ -230,6 +230,7 @@ class AuthController extends GetxController implements GetxService {
 
     Response _response = await authRepo.recordLocation(_recordLocation);
     if(_response.statusCode == 200) {
+      print(_response.body);
       print('--------------Added record Lat: ${_recordLocation.latitude} Lng: ${_recordLocation.longitude} Loc: ${_recordLocation.location}');
     }else {
       print('--------------Failed record');

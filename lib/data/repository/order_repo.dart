@@ -50,8 +50,8 @@ class OrderRepo extends GetxService {
     return apiClient.getData('${AppConstants.ORDER_DETAILS_URI}${getUserToken()}&order_id=$orderID');
   }
 
-  Future<Response> acceptOrder(int orderID, ) {
-    return apiClient.postData(AppConstants.ACCEPT_ORDER_URI, {"_method": "put", 'token': getUserToken(), 'order_id': orderID,});
+  Future<Response> acceptOrder(int orderID, String arrivalTime) {
+    return apiClient.postData(AppConstants.ACCEPT_ORDER_URI, {"_method": "put", 'token': getUserToken(), 'order_id': orderID, 'dm_arrival_time': arrivalTime});
   }
 
   Future<Response> updateIsChecked(int orderId, int foodItemId, int isChecked){

@@ -608,7 +608,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     OrderDetailsModel item = orderController
                                         .orderDetailsModel[index];
                                     // print(item.foodId);
-
                                     // print(orderController.isCheckedValues);
                                     // print('Hello World');
 

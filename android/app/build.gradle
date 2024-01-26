@@ -48,8 +48,8 @@ android {
         applicationId "dcodax.taemli.delivery.app"
         minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode '11'.toInteger()
-        versionName '9.2'
+        versionCode '12'.toInteger()
+        versionName '9.3'
         multiDexEnabled true
     }
 
