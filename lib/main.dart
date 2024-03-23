@@ -60,13 +60,15 @@ class MyApp extends StatelessWidget {
   MyApp({@required this.languages, @required this.body});
 
   void _route() {
-    Get.find<SplashController>().getConfigData().then((bool isSuccess) async {
-      if (isSuccess) {
-        if (Get.find<AuthController>().isLoggedIn()) {
-          Get.find<AuthController>().updateToken();
+    Get.find<SplashController>().getConfigData().then(
+      (bool isSuccess) async {
+        if (isSuccess) {
+          if (Get.find<AuthController>().isLoggedIn()) {
+            Get.find<AuthController>().updateToken();
+          }
         }
-      }
-    });
+      },
+    );
   }
 
   @override
